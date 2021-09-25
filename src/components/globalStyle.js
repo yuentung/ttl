@@ -65,6 +65,16 @@ export const ResetStyle = createGlobalStyle`
 export const GlobalStyle = createGlobalStyle`
     *, *:before, *:after {
         box-sizing: border-box;
+        letter-spacing: 0.12em;
+    }
+
+    body {
+        background-color: #F6F6F6;
+        overscroll-behavior: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     html {
@@ -72,6 +82,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     div, span, h1, h2, h3, h4, h5, h6, p, a {
-        font-family: "Noto Sans TC", "Roboto", sans-serif;
+        font-family: "Roboto", "Noto Sans TC", sans-serif;
     }
 `;
