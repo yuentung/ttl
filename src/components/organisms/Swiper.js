@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import data from '../../constants/data';
+import { forMobile } from '../../constants/breakpoints';
 
 const Wrapper = styled.div`
     position: relative;
@@ -10,6 +11,11 @@ const Wrapper = styled.div`
     height: 100vh;
     min-height: 800px;
     padding: 80px;
+
+    ${forMobile} {
+        // min-height: 400px;
+        padding: 40px;
+    }
 `;
 
 const Image = styled.img`
@@ -29,6 +35,11 @@ const Title = styled.h2`
     line-height: 84px;
     font-weight: 700;
     color: #FFFFFF;
+
+    ${forMobile} {
+        font-size: 32px;
+        line-height: 38px;
+    }
 `;
 
 const SubTitle = styled.p`
@@ -37,6 +48,13 @@ const SubTitle = styled.p`
     line-height: 28px;
     font-weight: 500;
     color: #FFFFFF;
+
+    ${forMobile} {
+        margin-top: 16px;
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.16em;
+    }
 `;
 
 const Link = styled.a`
@@ -48,12 +66,20 @@ const Link = styled.a`
     color: #FFFFFF;
     background-color: #2ECA6A;
     cursor: pointer;
+
+    ${forMobile} {
+        margin-top: 40px;
+    }
 `;
 
 const ButtonWrapper = styled.div`
     position: absolute;
     top: 32%;
     right: 80px;
+
+    ${forMobile} {
+        right: 40px;
+    }
 `;
 
 const Button = styled.div`
@@ -93,6 +119,11 @@ const ScrollWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    ${forMobile} {
+        right: 40px;
+        bottom: 40px;
+    }
 `;
 
 const ScrollLine = styled.div`

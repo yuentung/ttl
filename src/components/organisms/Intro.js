@@ -1,53 +1,124 @@
 import React from 'react';
 import styled from 'styled-components';
 import data from '../../constants/data';
+import { forDesktop, forMobile } from '../../constants/breakpoints';
 
 const Wrapper = styled.div`
-    padding-top: 104px;
+    padding: 180px 0;
+
+    ${forDesktop} {
+        padding: 100px 0;
+    }
+
+    ${forMobile} {
+        padding: 64px 0;
+    }
 `;
 
 const InnerWrapper = styled.div`
     position: relative;
-    margin-bottom: 120px;
-    height: 600px;
-    padding: 80px 0 60px;
+
+    & + & {
+        margin-top: 260px;
+    }
 
     &:nth-child(odd) {
-        > div:nth-child(1) {
-            padding: 80px 227px 80px 100px;
-        }
-
         > img {
-            top: 0;
+            top: -80px;
             right: 100px;
         }
 
+        > div:nth-child(2) {
+            padding: 80px 227px 80px 100px;
+        }
+
         > div:nth-child(3) {
+            top: 0;
             right: 0;
+            bottom: -60px;
         }
     }
 
     &:nth-child(even) {
-        > div:nth-child(1) {
-            right: 0;
-            padding: 80px 100px 80px 227px;
-        }
-
         > img {
-            top: 0;
+            top: -80px;
             left: 100px;
         }
 
         > div:nth-child(2) {
+            margin-left: auto;
+            padding: 80px 100px 80px 227px;
+        }
+
+        > div:nth-child(3) {
+            top: 0;
             left: 0;
+            bottom: -60px;
+        }
+    }
+
+    ${forDesktop} {
+        & + & {
+            margin-top: 168px;
+        }
+
+        &:nth-child(odd) {
+            > img {
+                top: -20px;
+                right: 60px;
+            }
+    
+            > div:nth-child(2) {
+                padding: 48px 140px 60px 60px;
+            }
+    
+            > div:nth-child(3) {
+                bottom: -48px;
+            }
+        }
+    
+        &:nth-child(even) {
+            > img {
+                top: -20px;
+                left: 60px;
+            }
+
+            > div:nth-child(2) {
+                padding: 48px 60px 60px 140px;
+            }
+    
+            > div:nth-child(3) {
+                bottom: -48px;
+            }
+        }
+    }
+
+    ${forMobile} {
+        & + & {
+            margin-top: 64px;
+        }
+
+        &:nth-child(odd) {
+            > div:nth-child(2) {
+                padding: 40px 32px;
+            }
+        }
+    
+        &:nth-child(even) {
+            > div:nth-child(2) {
+                padding: 40px 32px;
+            }
         }
     }
 `;
 
 const ContentWrapper = styled.div`
-    position: absolute;
-    width: 55.5%;
+    width: 55%;
     background-color: #FFFFFF;
+
+    ${forMobile} {
+        width: 100%;
+    }
 `;
 
 const SubTitle = styled.span`
@@ -55,12 +126,25 @@ const SubTitle = styled.span`
     line-height: 19px;
     font-weight: 700;
     color: #2ECA6A;
+
+    ${forMobile} {
+        font-size: 14px;
+        line-height: 17px;
+    }
 `;
 
 const TitleWrapper = styled.div`
     display: flex;
     align-items: center;
     margin-top: 28px;
+
+    ${forDesktop} {
+        align-items: flex-start;
+    }
+
+    ${forMobile} {
+        margin-top: 24px;
+    }
 `;
 
 const Line = styled.div`
@@ -74,6 +158,14 @@ const Line = styled.div`
     &:nth-child(2) {
         background-color: #79E3A2;
     }
+
+    ${forDesktop} {
+        height: 40px;
+    }
+
+    ${forMobile} {
+        height: 24px;
+    }
 `;
 
 const Title = styled.h3`
@@ -82,6 +174,16 @@ const Title = styled.h3`
     line-height: 42px;
     font-weight: 700;
     color: #2A2A2A;
+
+    ${forDesktop} {
+        font-size: 28px;
+        line-height: 33px;
+    }
+
+    ${forMobile} {
+        font-size: 20px;
+        line-height: 24px;
+    }
 `;
 
 const Description = styled.p`
@@ -91,21 +193,37 @@ const Description = styled.p`
     letter-spacing: 0.1em;
     font-weight: 400;
     color: #525252;
+
+    ${forDesktop} {
+        margin-top: 28px;
+    }
+
+    ${forMobile} {
+        margin-top: 36px;
+    }
 `;
 
 const Image = styled.img`
     position: absolute;
     display: block;
-    width: 47.2%;
+    width: 48%;
+
+    ${forMobile} {
+        position: static;
+        width: 100%;
+    }
 `;
 
 const Rectangle = styled.div`
     position: absolute;
     bottom: 0;
     z-index: -1;
-    width: 61%;
-    height: 464px;
+    width: 60%;
     background-color: #C1F1D3;
+
+    ${forMobile} {
+        display: none;
+    }
 `;
 
 const Intro = () => {
@@ -115,6 +233,7 @@ const Intro = () => {
         <Wrapper>
             {intro.map(({ subTitle, title, description, image }) => (
                 <InnerWrapper key={subTitle}>
+                    <Image src={image} alt={title} />
                     <ContentWrapper>
                         <SubTitle>{subTitle}</SubTitle>
                         <TitleWrapper>
@@ -126,7 +245,6 @@ const Intro = () => {
                         </TitleWrapper>
                         <Description>{description}</Description>
                     </ContentWrapper>
-                    <Image src={image} alt={title} />
                     <Rectangle />
                 </InnerWrapper>
             ))}

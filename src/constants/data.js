@@ -1,13 +1,19 @@
 import Logo from './images/logo.png';
+import DarkLogo from './images/logo_dark.png';
 import Banner1 from './images/banner1.png';
 import Banner2 from './images/banner2.png';
 import Intro1 from './images/intro1.png';
 import Intro2 from './images/intro2.png';
 import About from './images/about.png';
-import Product1 from './images/product1.png';
-import Product2 from './images/product2.png';
-import Product3 from './images/product3.png';
-import Product4 from './images/product4.png';
+import TextImage from './images/text.png';
+import TTLProduct1 from './images/ttl_product1.png';
+import TTLProduct2 from './images/ttl_product2.png';
+import TTLProduct3 from './images/ttl_product3.png';
+import TTLProduct4 from './images/ttl_product4.png';
+import VCProduct1 from './images/vc_product1.png';
+import VCProduct2 from './images/vc_product2.png';
+import VCProduct3 from './images/vc_product3.png';
+import VCProduct4 from './images/vc_product4.png';
 import Clock from './images/clock.png';
 import Mail from './images/mail.png';
 import Phone from './images/phone.png';
@@ -19,6 +25,7 @@ const data = {
     home: {
         navbar: {
             logo: Logo,
+            darkLogo: DarkLogo,
             navList: [
                 {
                     text: '關於我們',
@@ -66,6 +73,7 @@ const data = {
         ],
         about: {
             image: About,
+            textImage: TextImage,
             subTitle: 'ABOUT US',
             title: '關於我們',
             storyList: [
@@ -90,26 +98,50 @@ const data = {
             subTitle: 'PRODUCT',
             title: '產品介紹',
             productList: [
-                {
-                    image: Product1,
-                    title: '玻璃切割機－Pujinli',
-                    description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-                },
-                {
-                    image: Product2,
-                    title: '中空玻璃生產線-BOZA',
-                    description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-                },
-                {
-                    image: Product3,
-                    title: '熱熔膠槍',
-                    description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-                },
-                {
-                    image: Product4,
-                    title: '玻璃切割機－Pujinli',
-                    description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-                },
+                [
+                    {
+                        image: TTLProduct1,
+                        title: '玻璃切割機－Pujinli',
+                        description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+                    },
+                    {
+                        image: TTLProduct2,
+                        title: '中空玻璃生產線-BOZA',
+                        description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+                    },
+                    {
+                        image: TTLProduct3,
+                        title: '熱熔膠槍',
+                        description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+                    },
+                    {
+                        image: TTLProduct4,
+                        title: '玻璃切割機－Pujinli',
+                        description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+                    },
+                ],
+                [
+                    {
+                        image: VCProduct1,
+                        title: '玻璃切割機－Pujinli',
+                        description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+                    },
+                    {
+                        image: VCProduct2,
+                        title: '中空玻璃生產線-BOZA',
+                        description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+                    },
+                    {
+                        image: VCProduct3,
+                        title: '熱熔膠槍',
+                        description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+                    },
+                    {
+                        image: VCProduct4,
+                        title: '玻璃切割機－Pujinli',
+                        description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+                    },
+                ]
             ],
         },
         footer: {

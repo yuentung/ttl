@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import data from '../../constants/data';
+import { forDesktop, forMobile } from '../../constants/breakpoints';
 
 const Wrapper = styled.div`
     position: relative;
     padding-top: 100px;
+
+    ${forMobile} {
+        padding-top: 52px;
+    }
 `;
 
 const Image = styled.img`
@@ -16,6 +21,10 @@ const Image = styled.img`
     height: 542px;
     object-fit: cover;
     object-position: center;
+
+    ${forMobile} {
+        height: 394px;
+    }
 `;
 
 const TitleWrapper = styled.div`
@@ -29,11 +38,20 @@ const SubTitle = styled.span`
     line-height: 19px;
     font-weight: 700;
     color: #2ECA6A;
+
+    ${forMobile} {
+        font-size: 14px;
+        line-height: 17px;
+    }
 `;
 
 const LineWrapper = styled.div`
     display: flex;
     margin-top: 24px;
+
+    ${forMobile} {
+        margin-top: 20px;
+    }
 `;
 
 const Line = styled.span`
@@ -56,14 +74,24 @@ const Title = styled.h3`
     line-height: 42px;
     font-weight: 700;
     color: #FFFFFF;
+
+    ${forMobile} {
+        font-size: 20px;
+        line-height: 24px;
+    }
 `;
 
 const ContentWrapper = styled.div`
     position: relative;
-    padding: 120px 84px 100px;
+    padding: 120px 112px 100px 84px;
     border-top: 4px solid #2ECA6A;
     margin: 93px 100px 0;
     background-color: #FFFFFF;
+
+    ${forDesktop} {
+        padding: 100px 42px 68px 32px;
+        margin: 80px 30px 0;
+    }
 `;
 
 const SquareWrapper = styled.div`
@@ -71,6 +99,11 @@ const SquareWrapper = styled.div`
     top: -30px;
     left: -30px;
     display: flex;
+
+    ${forMobile} {
+        top: -22px;
+        left: -30px;
+    }
 `;
 
 const Square = styled.span`
@@ -85,6 +118,11 @@ const Square = styled.span`
     &:nth-child(2) {
         background-color: #2ECA6A;
     }
+
+    ${forMobile} {
+        width: 42px;
+        height: 42px;
+    }
 `;
 
 const TimeLine = styled.div`
@@ -94,17 +132,39 @@ const TimeLine = styled.div`
     width: 100%;
     height: 1px;
     background-color: #DCDCDC;
-`;
 
-const StoryList = styled.div`
-    display: flex;
-    justify-content: space-between;
+    ${forDesktop} {
+        top: 216px;
+    }
 `;
 
 const StoryWrapper = styled.div`
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+`;
+
+const StoryList = styled.ul`
+    display: flex;
+    flex-shirk: 0;
+    width: 1000px;
+`;
+
+const StoryItem = styled.li`
     position: relative;
-    width: 30%;
+    width: 293px;
     padding-top: 20px;
+
+    & + & {
+        margin-left: 82px;
+    }
+
+    ${forMobile} {
+        width: 100%;
+        min-width: 240px;
+    }
 `;
 
 const RectangleWrapper = styled.div`
@@ -135,6 +195,11 @@ const StoryTime = styled.span`
     font-weight: 700;
     font-style: italic;
     color: #2A2A2A;
+
+    ${forMobile} {
+        font-size: 44px;
+        line-height: 54px;
+    }
 `;
 
 const StoryLine = styled.div`
@@ -142,6 +207,10 @@ const StoryLine = styled.div`
     width: 1px;
     height: 27px;
     background-color: #A3A3A3;
+
+    ${forMobile} {
+        margin-top: 28px;
+    }
 `;
 
 const StoryTitle = styled.h4`
@@ -182,6 +251,12 @@ const ButtonList = styled.div`
     display: flex;
     justify-content: flex-end;
     margin-top: 64px;
+    margin-right: -52px;
+
+    ${forDesktop} {
+        margin-top: 32px;
+        margin-right: -20px;
+    }
 `;
 
 const Button = styled.button`
@@ -202,16 +277,18 @@ const Button = styled.button`
     }
 `;
 
-const Company = styled.h6`
+const TextImage = styled.img`
     position: absolute;
-    bottom: -32px;
-    left: -2px;
-    font-size: 100px;
-    line-height: 125px;
-    letter-spacing: normal;
-    font-weight: 900;
-    color: #F6F6F6;
-`;
+    display: block;
+    width: 65%;
+    max-width: 808px;
+    bottom: 0;
+    left: 0;
+
+    ${forMobile} {
+        width: 100%;
+    }
+`
 
 const LastSquare = styled.span`
     position: absolute;
@@ -221,10 +298,16 @@ const LastSquare = styled.span`
     width: 58px;
     height: 58px;
     background-color: #2ECA6A;
+
+    ${forMobile} {
+        right: -29px;
+        bottom: -29px;
+        z-index: -1;
+    }
 `;
 
 const About = () => {
-    const { image, subTitle, title, storyList } = data.home.about;
+    const { image, textImage, subTitle, title, storyList } = data.home.about;
 
     return (
         <Wrapper>
@@ -243,25 +326,27 @@ const About = () => {
                     <Square />
                 </SquareWrapper>
                 <TimeLine />
-                <StoryList>
-                    {storyList.map(({ time, title, description }) => (
-                        <StoryWrapper key={time}>
-                            <RectangleWrapper>
-                                <Rectangle />
-                                <Rectangle />
-                            </RectangleWrapper>
-                            <StoryTime>{time}</StoryTime>
-                            <StoryLine />
-                            <StoryTitle>{title}</StoryTitle>
-                            <StoryDescription>{description}</StoryDescription>
-                        </StoryWrapper>
-                    ))}
-                </StoryList>
+                <StoryWrapper>
+                    <StoryList>
+                        {storyList.map(({ time, title, description }) => (
+                            <StoryItem key={time}>
+                                <RectangleWrapper>
+                                    <Rectangle />
+                                    <Rectangle />
+                                </RectangleWrapper>
+                                <StoryTime>{time}</StoryTime>
+                                <StoryLine />
+                                <StoryTitle>{title}</StoryTitle>
+                                <StoryDescription>{description}</StoryDescription>
+                            </StoryItem>
+                        ))}
+                    </StoryList>
+                </StoryWrapper>
                 <ButtonList>
                     <Button className="material-icons">chevron_left</Button>
                     <Button className="material-icons">chevron_right</Button>
                 </ButtonList>
-                <Company>TAY TZYY LONG</Company>
+                <TextImage src={textImage} alt="TAY TZYY LONG" />
                 <LastSquare />
             </ContentWrapper>
         </Wrapper>

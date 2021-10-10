@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import data from '../../constants/data';
-import { desktop } from '../../constants/media';
+import { forDesktop, forMobile, forSmallMobile } from '../../constants/breakpoints';
 
 const Wrapper = styled.div`
     position: relative;
     padding: 120px 100px;
     background-color: rgba(0, 0, 0, 0.8);
+
+    ${forMobile} {
+        padding: 40px 32px 140px;
+    }
 `;
 
 const Image = styled.img`
@@ -25,6 +29,11 @@ const Container = styled.div`
     justify-content: space-between;
     max-width: 1240px;
     margin: 0 auto;
+
+    ${forMobile} {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 `;
 
 const RightWrapper = styled.div`
@@ -32,9 +41,12 @@ const RightWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
-    ${desktop} {
+    ${forDesktop} {
         justify-content: flex-start;
-        width: 60%;
+    }
+
+    ${forMobile} {
+        width: 100%;
     }
 `;
 
@@ -47,14 +59,26 @@ const LogoLink = styled.a`
     background-size: cover;
     cursor: pointer;
 
-    ${desktop} {
-        margin-bottom: 36px;
+    ${forDesktop} {
+        margin-bottom: 32px;
     }
 `;
 
 const InnerWrapper = styled.div`
     display: flex;
-    flex-wrap: wrap;
+
+    ${forDesktop} {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    ${forMobile} {
+        flex-wrap: nowrap;
+    }
+
+    ${forSmallMobile} {
+        flex-wrap: wrap;
+    }
 `;
 
 const InnerLeftWrapper = styled.div`
@@ -63,7 +87,9 @@ const InnerLeftWrapper = styled.div`
     justify-content: space-between;
     margin-right: 110px;
 
-    ${desktop} {
+    ${forDesktop} {
+        justify-content: flex-start;
+        margin-right: 60px;
         margin-bottom: 36px;
     }
 `;
@@ -74,7 +100,7 @@ const InnerRightWrapper = styled.div`
 `;
 
 const MiddleWrapper = styled.div`
-    ${desktop} {
+    ${forDesktop} {
         margin-top: 24px;
     }
 `;
@@ -83,8 +109,17 @@ const BottomWrapper = styled.div`
     display: flex;
     align-items: center;
 
-    ${desktop} {
-        margin-top: 24px;
+    ${forDesktop} {
+        position: absolute;
+        right: 165px;
+        bottom: 120px;
+    }
+
+    ${forMobile} {
+        right: unset;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 80px;
     }
 `;
 
@@ -94,6 +129,12 @@ const InfoWrapper = styled.div`
 
     & + & {
         margin-top: 24px;
+    }
+
+    ${forMobile} {
+        & + & {
+            margin-top: 16px;
+        }
     }
 `;
 
@@ -106,6 +147,11 @@ const InfoText = styled.p`
     line-height: 19px;
     letter-spacing: 0.15;
     color: #FFFFFF;
+
+    ${forMobile} {
+        font-size: 14px;
+        line-height: 17px;
+    }
 `;
 
 const MediaIcon = styled.img`
@@ -115,10 +161,9 @@ const MediaIcon = styled.img`
 const NavList = styled.ul`
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 64px;
 
-    ${desktop} {
-        margin-bottom: 36px;
+    ${forMobile} {
+        margin-bottom: 40px;
     }
 `;
 
@@ -128,8 +173,8 @@ const NavItem = styled.li`
     &:nth-child(3), &:nth-child(4) {
         margin-top: 64px;
 
-        ${desktop} {
-            margin-top: 24px;
+        ${forDesktop} {
+            margin-top: 40px;
         }
     }
 
@@ -156,20 +201,28 @@ const SubNavItem = styled.li`
 `;
 
 const Copyright = styled.p`
+    margin-top: 60px;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.12;
     color: #FFFFFF;
+
+    ${forDesktop} {
+        display: none;
+    }
 `;
 
 const Map = styled.img`
     display: block;
     width: 300px;
     height: 287px;
+    object-fit: cover;
 
-    ${desktop} {
+    ${forDesktop} {
         width: 100%;
+        min-width: 300px;
         height: auto;
+        max-height: 400px;
         margin-bottom: 36px;
     }
 `;
