@@ -147,6 +147,7 @@ const InfoText = styled.p`
     line-height: 19px;
     letter-spacing: 0.15;
     color: #FFFFFF;
+    white-space: nowrap;
 
     ${forMobile} {
         font-size: 14px;

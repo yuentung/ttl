@@ -262,6 +262,7 @@ const ButtonList = styled.div`
 const Button = styled.button`
     width: 40px;
     height: 40px;
+    padding: 0;
     border: 1px solid #DCDCDC;
     border-radius: 50%;
     font-size: 20px;
