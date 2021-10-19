@@ -57,6 +57,7 @@ const InnerWrapper = styled.div`
     right: 0;
     left: 0;
     flex-direction: column-reverse;
+    height: ${({ height }) => `${height}px`};
     ${({ isOpen }) => isOpen && 'background-color: rgba(46, 202, 106, 0.7);'}
     backdrop-filter: blur(${({ isTop, isOpen }) => (!isTop || isOpen) ? '54.3656px' : '0'});
   }
@@ -177,7 +178,7 @@ const Navbar = () => {
             </MediaLinkWrapper>
           )}
         </Header>
-        <NavList height={height} />
+        <NavList />
       </InnerWrapper>
     </Wrapper>
   );

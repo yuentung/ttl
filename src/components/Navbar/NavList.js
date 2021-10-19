@@ -10,13 +10,28 @@ const Wrapper = styled.div`
   }
 
   ${forMobile} {
-    height: calc(${({ height }) => `${height}px`} - 92px);
+    flex-grow: 1;
     padding: 60px 40px;
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
         display: none;
     }
+  }
+`;
+
+const Background = styled.div`
+  ${greaterThanMobile} {
+    position: absolute;
+    top: 110px;
+    right: 0;
+    left: 0;
+    height: ${({ show }) => show ? '256px' : '0'};
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  ${forMobile} {
+    display: none;
   }
 `;
 
@@ -81,15 +96,15 @@ const SubNavList = styled.ul`
     top: 110px;
     right: 0;
     left: 0;
-    display: none;
+    z-index: 1;
+    display: flex;
     justify-content: flex-end;
     height: 256px;
     padding: 40px 80px;
-    background-color: rgba(255, 255, 255, 0.95);
+    opacity: ${({ selected }) => selected ? '1' : '0'};
   }
 
   ${forMobile} {
-    flex-direction: column;
     max-height: ${({ selected }) => selected ? '1000px' : '0'};
     margin-left: 24px;
     overflow: hidden;
@@ -196,13 +211,13 @@ const LastNavLink = styled.a`
   }
 `;
 
-const NavList = ({ height }) => {
+const NavList = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const isDesktop = useMedia({ minWidth: '768px' });
   const { navList } = data.home.navbar;
 
   return (
-    <Wrapper height={height}>
+    <Wrapper>
       <InnerWrapper>
         {navList.map(({ text, link, subNavList }, index) => (
           <NavItem key={text}>
@@ -232,15 +247,7 @@ const NavList = ({ height }) => {
               )}
             </NavLink>
             {subNavList && (
-              <SubNavList
-                onMouseEnter={() => {
-                  if (isDesktop && subNavList) setSelectedIndex(index);
-                }}
-                onMouseLeave={() => {
-                  if (isDesktop && subNavList) setSelectedIndex(-1);
-                }}
-                selected={index === selectedIndex}
-              >
+              <SubNavList selected={index === selectedIndex}>
                 {subNavList.map(({ text, link, lastNavList }, index) => (
                   <SubNavItem key={text}>
                     {text && (
@@ -268,6 +275,7 @@ const NavList = ({ height }) => {
           </NavItem>
         ))}
       </InnerWrapper>
+      <Background show={selectedIndex !== -1} />
     </Wrapper>
   );
 };
