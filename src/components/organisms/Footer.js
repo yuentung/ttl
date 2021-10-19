@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import data from '../../constants/data';
-import { forDesktop, forMobile, forSmallMobile } from '../../constants/breakpoints';
+import { forDesktop, forMobile, forSmallMobile } from '../../theme/breakpoints';
 
 const Wrapper = styled.div`
     position: relative;
@@ -240,7 +240,7 @@ const Button = styled.button`
 
 const Footer = () => {
     const { image, info, navList, map } = data.home.footer;
-    const { address, serviceHours, mail, phone, share, ig, fb } = info;
+    const { address, serviceHours, mail, phone, ig, fb } = info;
 
     return (
         <Wrapper>

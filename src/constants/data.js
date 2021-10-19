@@ -28,19 +28,207 @@ const data = {
             darkLogo: DarkLogo,
             navList: [
                 {
-                    text: '關於我們',
+                    text: '公司資訊',
                     link: '',
                 },
                 {
-                    text: '產品資訊',
+                    text: '機器設備銷售',
                     link: '',
+                    subNavList: [
+                        {
+                            text: '複層玻璃生產線',
+                            link: '',
+                            lastNavList: [
+                                {
+                                    text: '接角',
+                                    link: '',
+                                },
+                                {
+                                    text: '分子篩',
+                                    link: '',
+                                },
+                                {
+                                    text: '超級格條',
+                                    link: '',
+                                },
+                                {
+                                    text: '塑膠角料',
+                                    link: '',
+                                },
+                                {
+                                    text: '中空玻璃專用鋁條',
+                                    link: '',
+                                },
+                                {
+                                    text: '除膜機專用除膜輪',
+                                    link: '',
+                                },
+                                {
+                                    text: '熱熔丁基膠',
+                                    link: '',
+                                },
+                                {
+                                    text: '雙組份硅酮密封膠',
+                                    link: '',
+                                },
+                                {
+                                    text: '雙組份硅酮結構膠',
+                                    link: '',
+                                },
+                            ],
+                        },
+                        {
+                            text: '玻璃切割機',
+                            link: '',
+                        },
+                        {
+                            text: '熱熔膠機',
+                            link: '',
+                            lastNavList: [
+                                {
+                                    text: '芬熱熔膠',
+                                    link: '',
+                                },
+                                {
+                                    text: '南寶熱熔膠',
+                                    link: '',
+                                },
+                            ],
+                        },
+                    ],
                 },
                 {
-                    text: '使用耗材',
+                    text: 'VC 威斯卡門窗',
                     link: '',
+                    subNavList: [
+                        {
+                            text: '門窗產品',
+                            link: '',
+                            lastNavList: [
+                                {
+                                    text: '推開窗',
+                                    link: '',
+                                },
+                                {
+                                    text: '橫拉窗',
+                                    link: '',
+                                },
+                                {
+                                    text: '氣密門',
+                                    link: '',
+                                },
+                                {
+                                    text: '塑膠接角',
+                                    link: '',
+                                },
+                                {
+                                    text: '中空玻璃專用鋁條',
+                                    link: '',
+                                },
+                                {
+                                    text: '除膜機專用除膜輪',
+                                    link: '',
+                                },
+                                {
+                                    text: '熱熔丁基膠',
+                                    link: '',
+                                },
+                                {
+                                    text: '雙組份硅酮密封膠',
+                                    link: '',
+                                },
+                                {
+                                    text: '雙組份硅酮結構膠',
+                                    link: '',
+                                },
+                            ],
+                        },
+                        {
+                            text: '消耗性產品',
+                            link: '',
+                            lastNavList: [
+                                {
+                                    text: '芬熱熔膠',
+                                    link: '',
+                                },
+                                {
+                                    text: '南寶熱熔膠',
+                                    link: '',
+                                },
+                            ],
+                        },
+                    ],
                 },
                 {
-                    text: '聯絡資訊',
+                    text: '工程案例',
+                    link: '',
+                    subNavList: [
+                        {
+                            text: '',
+                            link: '',
+                            lastNavList: [
+                                {
+                                    text: '電梯大樓陽台窗',
+                                    link: '',
+                                },
+                                {
+                                    text: '別墅採光罩及玻璃安裝',
+                                    link: '',
+                                },
+                                {
+                                    text: '住宅推開窗及折疊紗窗',
+                                    link: '',
+                                },
+                                {
+                                    text: '住宅氣密門',
+                                    link: '',
+                                },
+                                {
+                                    text: '招待所平行回縮推拉門',
+                                    link: '',
+                                },
+                                {
+                                    text: '住宅格子窗',
+                                    link: '',
+                                },
+                                {
+                                    text: '住宅內導內開窗',
+                                    link: '',
+                                },
+                                {
+                                    text: '住宅外開上懸窗',
+                                    link: '',
+                                },
+                                {
+                                    text: '住宅三合一通風門',
+                                    link: '',
+                                },
+                                {
+                                    text: '機架料組合架及工作桌',
+                                    link: '',
+                                },
+                                {
+                                    text: '住宅樓梯扶手',
+                                    link: '',
+                                },
+                                {
+                                    text: '自動門',
+                                    link: '',
+                                },
+                                {
+                                    text: '淋浴拉門',
+                                    link: '',
+                                },
+                                {
+                                    text: '摺疊門',
+                                    link: '',
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    text: '聯絡我們',
                     link: '',
                 },
             ],
@@ -167,11 +355,11 @@ const data = {
                 },
                 ig: {
                     icon: IG,
-                    link: '',
+                    link: '/',
                 },
                 fb: {
                     icon: FB,
-                    link: '',
+                    link: '/',
                 },
             },
             navList: [

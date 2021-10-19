@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import data from '../../constants/data';
-import { forDesktop, forMobile } from '../../constants/breakpoints';
+import { forDesktop, forMobile } from '../../theme/breakpoints';
 
 const Wrapper = styled.div`
     padding: 180px 0;

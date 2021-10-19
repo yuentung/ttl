@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import data from '../../constants/data';
-import { forDesktop, forMobile } from '../../constants/breakpoints';
+import { forDesktop, forMobile } from '../../theme/breakpoints';
 
 const Wrapper = styled.div`
     display: flex;

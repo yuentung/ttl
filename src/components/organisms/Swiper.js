@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import data from '../../constants/data';
-import { forMobile } from '../../constants/breakpoints';
+import { forMobile } from '../../theme/breakpoints';
 
 const Wrapper = styled.div`
     position: relative;
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 
     ${forMobile} {
         // min-height: 400px;
-        padding: 40px;
+        padding: 48px 32px;
     }
 `;
 
