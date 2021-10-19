@@ -53,7 +53,7 @@ const InnerWrapper = styled.div`
 
   ${forMobile} {
     position: absolute;
-    top: ${({ isOpen }) => isOpen ? '0' : 'calc(91px - 100vh)'}; //
+    top: ${({ isOpen, height }) => isOpen ? '0' : `calc(92px - ${height}px)`};
     right: 0;
     left: 0;
     flex-direction: column-reverse;
@@ -116,6 +116,7 @@ const MediaLinkWrapper = styled.div`
 const Navbar = () => {
   const [isTop, setIsTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const [height, setHeight] = useState(window.innerHeight);
   const isDesktop = useMedia({ minWidth: '768px' });
 
   useEffect(() => {
@@ -125,6 +126,14 @@ const Navbar = () => {
     });
 
     return () => window.removeEventListener('scroll', () => { });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setHeight(window.innerHeight);
+    });
+
+    return () => window.removeEventListener('resize', () => { });
   }, []);
 
   useEffect(() => {
@@ -144,12 +153,12 @@ const Navbar = () => {
           handleButtonClick={() => setIsOpen(prevState => !prevState)}
         />
       </MenuButtonWrapper>
-      <InnerWrapper isTop={isTop} isOpen={isOpen}>
+      <InnerWrapper isTop={isTop} isOpen={isOpen} height={height}>
         {isOpen && <Mask />}
         <Header>
           <LogoLinkWrapper isTop={isTop} isOpen={isOpen}>
             <LogoLink
-              width={isDesktop ? 216 : (isOpen ? 126 : 160)}
+              width={isDesktop ? 216 : (isOpen ? 128 : 160)}
               color={(!isTop || isOpen) ? 'dark' : 'light'}
             />
           </LogoLinkWrapper>
@@ -168,7 +177,7 @@ const Navbar = () => {
             </MediaLinkWrapper>
           )}
         </Header>
-        <NavList />
+        <NavList height={height} />
       </InnerWrapper>
     </Wrapper>
   );

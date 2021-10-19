@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   }
 
   ${forMobile} {
-    height: calc(100vh - 91px);
+    height: calc(${({ height }) => `${height}px`} - 92px);
     padding: 60px 40px;
     overflow-y: scroll;
 
@@ -196,13 +196,13 @@ const LastNavLink = styled.a`
   }
 `;
 
-const NavList = () => {
+const NavList = ({ height }) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const isDesktop = useMedia({ minWidth: '768px' });
   const { navList } = data.home.navbar;
 
   return (
-    <Wrapper>
+    <Wrapper height={height}>
       <InnerWrapper>
         {navList.map(({ text, link, subNavList }, index) => (
           <NavItem key={text}>
@@ -245,7 +245,7 @@ const NavList = () => {
                   <SubNavItem key={text}>
                     {text && (
                       <SubNavLink href={link}>
-                        <span>{`0${index + 1}`}</span>
+                        <span>{`O${index + 1}`}</span>
                         {text}
                       </SubNavLink>
                     )}
