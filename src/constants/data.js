@@ -276,6 +276,21 @@ const data = {
                     description: '「太子龍開發有限公司」設立於 2001 年，最主要的銷售項目為：中空玻璃生產 線、複層玻璃材料、玻璃自動加工設備、門窗加工設備、節能門窗及五金配件。 全世界倡導節能綠建築時。',
                 },
                 {
+                    time: '2009',
+                    title: '在全自動模式下',
+                    description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。One key start whole assembly line linkage under automatic model is utilized uniquely worldwide with simple operation. ',
+                },
+                {
+                    time: '2012',
+                    title: '在全自動模式下',
+                    description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。One key start whole assembly line linkage under automatic model is utilized uniquely worldwide with simple operation. ',
+                },
+                {
+                    time: '2015',
+                    title: '在全自動模式下',
+                    description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。One key start whole assembly line linkage under automatic model is utilized uniquely worldwide with simple operation. ',
+                },
+                {
                     time: '2019',
                     title: '在全自動模式下',
                     description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。One key start whole assembly line linkage under automatic model is utilized uniquely worldwide with simple operation. ',

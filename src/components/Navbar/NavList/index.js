@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import useMedia from 'use-media';
 import styled from 'styled-components';
-import { greaterThanMobile, forMobile } from '../../theme/breakpoints';
-import data from '../../constants/data';
+import { greaterThanMobile, forMobile } from '../../../theme/breakpoints';
+import data from '../../../constants/data';
 
 const Wrapper = styled.div`
   ${greaterThanMobile} {

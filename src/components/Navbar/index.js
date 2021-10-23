@@ -118,7 +118,7 @@ const Navbar = () => {
   const [isTop, setIsTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [height, setHeight] = useState(window.innerHeight);
-  const isDesktop = useMedia({ minWidth: '768px' });
+  const isDesktop = useMedia({ minWidth: '769px' });
 
   useEffect(() => {
     window.addEventListener('scroll', e => {
