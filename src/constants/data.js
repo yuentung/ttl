@@ -409,10 +409,6 @@ const data = {
                     link: '',
                     subNavList: [
                         {
-                            text: 'VC 威斯卡門窗',
-                            link: '',
-                        },
-                        {
                             text: '門窗產品',
                             link: '',
                         },

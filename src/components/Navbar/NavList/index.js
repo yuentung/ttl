@@ -91,6 +91,8 @@ const NavLink = styled.a`
 `;
 
 const SubNavList = styled.ul`
+  overflow: hidden;
+
   ${greaterThanMobile} {
     position: absolute;
     top: 110px;
@@ -100,14 +102,13 @@ const SubNavList = styled.ul`
     display: flex;
     justify-content: flex-end;
     height: 256px;
-    padding: 40px 80px;
-    opacity: ${({ selected }) => selected ? '1' : '0'};
+    max-height: ${({ selected }) => selected ? '256px' : '0'};
+    padding: ${({ selected }) => selected ? '40px 80px' : '0 80px'};
   }
 
   ${forMobile} {
     max-height: ${({ selected }) => selected ? '1000px' : '0'};
     margin-left: 24px;
-    overflow: hidden;
   }
 `;
 
@@ -116,7 +117,6 @@ const SubNavItem = styled.li`
     & + & {
       margin-left: 40px;
     }
-
   }
   ${forMobile} {
     margin-top: 24px;

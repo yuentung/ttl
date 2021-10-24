@@ -31,7 +31,7 @@ const Image = styled.img`
   left: 0;
   z-index: -1;
   width: 100%;
-  height: 100%;
+  height: ${({ fullHeight }) => `${fullHeight}px`};
   object-fit: cover;
   object-position: center;
   
@@ -129,7 +129,7 @@ const Swiper = () => {
 
   return (
     <Wrapper fullHeight={height}>
-      <Image className="bannerImage" src={image} alt={subTitle} />
+      <Image fullHeight={height} className="bannerImage" src={image} alt={subTitle} />
       <PositionedSwitchButton
         isTop={selectedIndex === 0}
         switchToTop={() => setSelectedIndex(0)}

@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { forMobile, greaterThanMobile } from '../../../../theme/breakpoints';
 
 const Wrapper = styled.div`
   display: flex;
 `;
 
 const Button = styled.button`
-  padding: 10px 24px;
   border: 2px solid ${({ selected }) => selected ? '#2ECA6A' : '#DCDCDC'};
-  font-size: 16px;
-  line-height: 19px;
   letter-spacing: 0.12em;
   font-weight: 700;
   color: ${({ selected }) => selected ? '#FFFFFF' : '#DCDCDC'};
@@ -21,6 +19,18 @@ const Button = styled.button`
 
   &:nth-child(2) {
     border-left: none;
+  }
+
+  ${greaterThanMobile} {
+    padding: 10px 24px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  ${forMobile} {
+    padding: 6px 24px;
+    font-size: 14px;
+    line-height: 17px;
   }
 `;
 

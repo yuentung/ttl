@@ -53,6 +53,7 @@ const SubTitle = styled.div`
 
 const TitleWrapper = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const LineWrapper = styled.div`
