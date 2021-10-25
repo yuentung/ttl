@@ -16,10 +16,12 @@ const Button = styled.button`
 
   &:nth-child(1) {
     border-right: none;
+    padding-right: 26px;
   }
 
   &:nth-child(2) {
     border-left: none;
+    padding-left: 26px;
   }
 
   ${greaterThanMobile} {
