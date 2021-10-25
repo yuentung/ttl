@@ -190,18 +190,18 @@ const Products = () => {
         <ProductList>
           {productList[selectedIndex].map((productItem, index) => {
             if (width > 1200 && index < 4) {
-              return <Card {...productItem} />
+              return <Card key={productItem.title} {...productItem} />
             }
 
             if (width > 900 && index < 3) {
-              return <Card {...productItem} />
+              return <Card key={productItem.title} {...productItem} />
             }
 
             if (width > 768 && index < 2) {
-              return <Card {...productItem} />
+              return <Card key={productItem.title} {...productItem} />
             }
             if (width <= 768) {
-              return <Card {...productItem} />
+              return <Card key={productItem.title} {...productItem} />
             }
             return null;
           })}

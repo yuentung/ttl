@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import Story from './Story';
 import ArrowButton from './ArrowButton';
-import useWindowDimensions from '../../../../hooks/useWindowDimensions';
+import usePagination from '../../../../hooks/usePagination';
 import { forMobile, greaterThanMobile } from '../../../../theme/breakpoints';
 import data from '../../../../constants/data';
 
@@ -176,26 +176,8 @@ const TextImage = styled.img`
 `;
 
 const Swiper = ({ className }) => {
-  const { width } = useWindowDimensions();
-  const [selectedIndex, setSelectedIndex] = useState(() => {
-    if (width > 1200) return 2;
-    else if (width > 768) return 1;
-    else return 0;
-  });
   const { textImage, storyList } = data.home.about;
-
-  const setSpecificIndex = dir => {
-    let amount = dir === 'minus' ? -1 : 1;
-
-    if (width > 1200) amount *= 3;
-    else if (width > 768) amount *= 2;
-    else amount *= 1;
-
-    const targetIndex = selectedIndex + amount;
-
-    if (targetIndex < 0 || targetIndex > storyList.length - 1) return;
-    else setSelectedIndex(targetIndex);
-  };
+  const [showItem, setPage] = usePagination(storyList.length);
 
   const scrollToTarget = useCallback(targetIndex => {
     const target = document.querySelector(`.storyList > li:nth-child(${targetIndex + 1})`);
@@ -203,8 +185,8 @@ const Swiper = ({ className }) => {
   }, []);
 
   useEffect(() => {
-    scrollToTarget(selectedIndex);
-  }, [scrollToTarget, selectedIndex]);
+    scrollToTarget(showItem);
+  }, [scrollToTarget, showItem]);
 
   return (
     <Wrapper className={className}>
@@ -216,8 +198,8 @@ const Swiper = ({ className }) => {
         </StoryList>
       </StoryWrapper>
       <ButtonGroup>
-        <ArrowButton handleButtonClick={() => setSpecificIndex('minus')}>chevron_left</ArrowButton>
-        <ArrowButton handleButtonClick={() => setSpecificIndex('plus')}>chevron_right</ArrowButton>
+        <ArrowButton handleButtonClick={() => setPage(-1)}>chevron_left</ArrowButton>
+        <ArrowButton handleButtonClick={() => setPage(1)}>chevron_right</ArrowButton>
       </ButtonGroup>
       <Timeline />
       <SquareWrapper>
