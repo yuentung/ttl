@@ -8,6 +8,7 @@ const Wrapper = styled.div`
 
 const Button = styled.button`
   border: 2px solid ${({ selected }) => selected ? '#2ECA6A' : '#DCDCDC'};
+  margin: 0;
   letter-spacing: 0.12em;
   font-weight: 700;
   color: ${({ selected }) => selected ? '#FFFFFF' : '#DCDCDC'};
