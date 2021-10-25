@@ -61,7 +61,7 @@ const NavItem = styled.li`
 const NavLink = styled.a`
   display: flex;
   align-items: center;
-  font-weight: 500;
+  font-weight: 400;
   color: #FFFFFF;
 
   > span {
