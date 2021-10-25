@@ -28,6 +28,7 @@ const Background = styled.div`
     left: 0;
     height: ${({ show }) => show ? '256px' : '0'};
     background-color: rgba(255, 255, 255, 0.95);
+    overflow: hidden;
   }
 
   ${forMobile} {
@@ -94,16 +95,9 @@ const SubNavList = styled.ul`
   overflow: hidden;
 
   ${greaterThanMobile} {
-    position: absolute;
-    top: 110px;
-    right: 0;
-    left: 0;
-    z-index: 1;
     display: flex;
     justify-content: flex-end;
-    height: 256px;
-    max-height: ${({ selected }) => selected ? '256px' : '0'};
-    padding: ${({ selected }) => selected ? '40px 80px' : '0 80px'};
+    padding: 40px 80px;
   }
 
   ${forMobile} {
@@ -213,7 +207,7 @@ const LastNavLink = styled.a`
 
 const NavList = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  const isDesktop = useMedia({ minWidth: '768px' });
+  const isDesktop = useMedia({ minWidth: '769px' });
   const { navList } = data.home.navbar;
 
   return (
@@ -246,7 +240,7 @@ const NavList = () => {
                 <span className="material-icons">expand_more</span>
               )}
             </NavLink>
-            {subNavList && (
+            {(!isDesktop && subNavList) && (
               <SubNavList selected={index === selectedIndex}>
                 {subNavList.map(({ text, link, lastNavList }, index) => (
                   <SubNavItem key={text}>
@@ -275,7 +269,34 @@ const NavList = () => {
           </NavItem>
         ))}
       </InnerWrapper>
-      <Background show={selectedIndex !== -1} />
+      <Background show={selectedIndex !== -1}>
+        {(isDesktop && navList[selectedIndex]?.subNavList) && (
+          <SubNavList>
+            {navList[selectedIndex]?.subNavList.map(({ text, link, lastNavList }, index) => (
+              <SubNavItem key={text}>
+                {text && (
+                  <SubNavLink href={link}>
+                    <span>{`O${index + 1}`}</span>
+                    {text}
+                  </SubNavLink>
+                )}
+                {lastNavList && (
+                  <LastNavList>
+                    {lastNavList.map(({ text, link }) => (
+                      <LastNavItem key={text}>
+                        <LastNavLink href={link}>
+                          <span>−</span>
+                          {text}
+                        </LastNavLink>
+                      </LastNavItem>
+                    ))}
+                  </LastNavList>
+                )}
+              </SubNavItem>
+            ))}
+          </SubNavList>
+        )}
+      </Background>
     </Wrapper>
   );
 };
