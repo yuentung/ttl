@@ -14,12 +14,6 @@ import VCProduct1 from './images/vc_product1.png';
 import VCProduct2 from './images/vc_product2.png';
 import VCProduct3 from './images/vc_product3.png';
 import VCProduct4 from './images/vc_product4.png';
-import Clock from './images/clock.png';
-import Mail from './images/mail.png';
-import Phone from './images/phone.png';
-import IG from './images/ig.png';
-import FB from './images/fb.png';
-import Map from './images/map.png';
 
 const data = {
     home: {
@@ -354,26 +348,21 @@ const data = {
                     text: '桃園市八德區廣福路1123巷51之6號'
                 },
                 serviceHours: {
-                    icon: Clock,
                     text: '8:00 AM — 6:00 PM',
                 },
                 mail: {
-                    icon: Mail,
                     text: 't3753270@gmail.com',
                 },
                 phone: {
-                    icon: Phone,
                     text: '03-3753270',
                 },
                 share: {
                     link: '',
                 },
                 ig: {
-                    icon: IG,
                     link: '/',
                 },
                 fb: {
-                    icon: FB,
                     link: '/',
                 },
             },
@@ -419,7 +408,6 @@ const data = {
                     ],
                 },
             ],
-            map: Map,
         }
     },
 };

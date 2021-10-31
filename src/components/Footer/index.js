@@ -1,9 +1,12 @@
 import React from 'react';
+import useMedia from 'use-media';
 import styled from 'styled-components';
+import Map from '../Map';
 import LogoLink from '../LogoLink';
 import Button from '../Button';
 import { forDesktop, forMobile, greaterThanMobile, forSmallMobile } from '../../theme/breakpoints';
 import data from '../../constants/data';
+import ArrowImage from '../../constants/images/arrow.svg';
 
 const Wrapper = styled.div`
   position: relative;
@@ -31,7 +34,7 @@ const Container = styled.div`
 
   ${forMobile} {
     flex-direction: column;
-    padding: 40px 32px 140px;
+    padding: 40px 32px;
   }
 `;
 
@@ -46,6 +49,7 @@ const RightWrapper = styled.div`
 
   ${forMobile} {
     width: 100%;
+    margin-bottom: 32px;
   }
 `;
 
@@ -101,6 +105,12 @@ const BottomWrapper = styled.div`
   display: flex;
   align-items: center;
 
+  > i {
+    margin-left: 36px;
+    font-size: 22px;
+    color: #FFFFFF;
+  }
+
   ${forDesktop} {
     position: absolute;
     right: 165px;
@@ -108,16 +118,22 @@ const BottomWrapper = styled.div`
   }
 
   ${forMobile} {
+    position: static;
     right: unset;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 80px;
+    bottom: unset;
+    margin-bottom: 32px;
   }
 `;
 
 const InfoWrapper = styled.div`
   display: flex;
   align-items: center;
+
+  > i {
+    margin-right: 12px;
+    font-size: 16px;
+    color: #FFFFFF;
+  }
 
   ${greaterThanMobile} {
     & + & {
@@ -131,10 +147,6 @@ const InfoWrapper = styled.div`
     }
   }
 `;
-
-const InfoIcon = styled.img`
-  margin-right: 12px;
-`
 
 const InfoText = styled.p`
   font-size: 16px;
@@ -150,10 +162,6 @@ const InfoText = styled.p`
   ${forMobile} {
     line-height: 24px;
   }
-`;
-
-const MediaIcon = styled.img`
-  margin-left: 36px;
 `;
 
 const NavList = styled.ul`
@@ -207,12 +215,16 @@ const Copyright = styled.p`
   font-weight: 400;
   color: #FFFFFF;
 
-  ${forDesktop} {
-    display: none;
+  ${forMobile} {
+    margin-top: 0;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
   }
 `;
 
-const Map = styled.img`
+const MapWrapper = styled(Map)`
   display: block;
   width: 300px;
   height: 287px;
@@ -225,11 +237,28 @@ const Map = styled.img`
     max-height: 400px;
     margin-bottom: 36px;
   }
+
+  ${forMobile} {
+    height: 174px;
+  }
+`;
+
+const MobileBottomWrapper = styled.div`
+  ${forMobile} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const ArrowIcon = styled.img`
+    margin-left: 8px;
 `;
 
 const Footer = () => {
-  const { image, info, navList, map } = data.home.footer;
-  const { address, serviceHours, mail, phone, ig, fb } = info;
+  const { image, info, navList } = data.home.footer;
+  const { address, serviceHours, mail, phone } = info;
+  const isMobile = useMedia({ maxWidth: '768px' });
 
   return (
     <Wrapper>
@@ -244,23 +273,25 @@ const Footer = () => {
               <InfoText>{address.text}</InfoText>
               <MiddleWrapper>
                 <InfoWrapper>
-                  <InfoIcon src={serviceHours.icon} alt={serviceHours.text} />
+                  <i className="fas fa-clock"></i>
                   <InfoText>{serviceHours.text}</InfoText>
                 </InfoWrapper>
                 <InfoWrapper>
-                  <InfoIcon src={mail.icon} alt={mail.text} />
+                  <i className="fas fa-envelope"></i>
                   <InfoText>{mail.text}</InfoText>
                 </InfoWrapper>
                 <InfoWrapper>
-                  <InfoIcon src={phone.icon} alt={phone.text} />
+                  <i className="fas fa-phone"></i>
                   <InfoText>{phone.text}</InfoText>
                 </InfoWrapper>
               </MiddleWrapper>
-              <BottomWrapper>
-                <InfoText>SOCIAL</InfoText>
-                <MediaIcon src={ig.icon} alt="Instagram" />
-                <MediaIcon src={fb.icon} alt="Facebook" />
-              </BottomWrapper>
+              {!isMobile && (
+                <BottomWrapper>
+                  <InfoText>SOCIAL</InfoText>
+                  <i className="fab fa-instagram"></i>
+                  <i className="fab fa-facebook-square"></i>
+                </BottomWrapper>
+              )}
             </InnerLeftWrapper>
             <InnerRightWrapper>
               <NavList>
@@ -279,20 +310,32 @@ const Footer = () => {
                   </NavItem>
                 ))}
               </NavList>
-              <Copyright>Copyright © Tay Tzyy LongCo.Ltc. all rights reserved</Copyright>
+              {!isMobile && <Copyright>Copyright © Tay Tzyy LongCo.Ltc. all rights reserved</Copyright>}
             </InnerRightWrapper>
           </InnerWrapper>
         </div>
         <RightWrapper>
-          <Map src={map} alt="map" />
+          <MapWrapper />
           <Button
             border="1px solid #FFFFFF"
             color="#FFFFFF"
+            hoverColor="#FFFFFF"
+            activeColor="#FFFFFF"
           >
             聯絡我們
-            <span className="material-icons">east</span>
+            <ArrowIcon src={ArrowImage} alt="arrow icon" />
           </Button>
         </RightWrapper>
+        {isMobile && (
+          <MobileBottomWrapper>
+            <BottomWrapper>
+              <InfoText>SOCIAL</InfoText>
+              <i className="fab fa-instagram"></i>
+              <i className="fab fa-facebook-square"></i>
+            </BottomWrapper>
+            <Copyright>Copyright © Tay Tzyy LongCo.Ltc. all rights reserved</Copyright>
+          </MobileBottomWrapper>
+        )}
       </Container>
     </Wrapper>
   );

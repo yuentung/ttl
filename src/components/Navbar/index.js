@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import LogoLink, { Wrapper as LogoLinkImage } from '../LogoLink';
 import MenuButton from './MenuButton';
 import NavList from './NavList';
-import IconComponent from '../IconComponent';
-import { greaterThanMobile, forMobile } from '../../theme/breakpoints';
+import { forDesktop, greaterThanDesktop } from '../../theme/breakpoints';
 import data from '../../constants/data';
 
 const Wrapper = styled.div`
@@ -16,12 +15,12 @@ const Wrapper = styled.div`
 `;
 
 const LogoLinkWrapper = styled.div`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     padding: 32px 80px;
     background-color: rgba(256, 256, 256, ${({ isTop }) => isTop ? '0' : '0.95'});
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     display: inline-block;
     vertical-align: top;
     padding: 32px ${({ isOpen }) => isOpen ? '40px' : '32px'};
@@ -33,7 +32,7 @@ const InnerWrapper = styled.div`
   display: flex;
   background-color: rgba(28, 160, 79, ${({ isTop }) => isTop ? '0' : '0.7'});
 
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     justify-content: space-between;
     backdrop-filter: blur(${({ isTop }) => isTop ? '0' : '54.3656px'});
 
@@ -51,7 +50,7 @@ const InnerWrapper = styled.div`
     }
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     position: absolute;
     top: ${({ isOpen, height }) => isOpen ? '0' : `calc(92px - ${height}px)`};
     right: 0;
@@ -64,11 +63,11 @@ const InnerWrapper = styled.div`
 `;
 
 const Mask = styled.div`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     display: none;
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     position: absolute;
     top: 73%;
     right: 0;
@@ -80,7 +79,7 @@ const Mask = styled.div`
 `;
 
 const Header = styled.div`
-  ${forMobile} {
+  ${forDesktop} {
     z-index: 3;
     display: flex;
     justify-content: space-between;
@@ -89,11 +88,11 @@ const Header = styled.div`
 `;
 
 const MenuButtonWrapper = styled.div`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     display: none;
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     position: absolute;
     z-index: 3;
     top: 32px;
@@ -102,23 +101,28 @@ const MenuButtonWrapper = styled.div`
 `;
 
 const MediaLinkWrapper = styled.div`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     display: none;
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     display: flex;
     justify-content: space-between;
-    width: 80px;
+    width: 72px;
     margin-right: 32px;
   }
+`;
+
+const MediaIcon = styled.i`
+  font-size: 22px;
+  color: #FFFFFF;
 `;
 
 const Navbar = () => {
   const [isTop, setIsTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [height, setHeight] = useState(window.innerHeight);
-  const isDesktop = useMedia({ minWidth: '769px' });
+  const isDesktop = useMedia({ minWidth: '1201px' });
 
   useEffect(() => {
     window.addEventListener('scroll', e => {
@@ -165,16 +169,12 @@ const Navbar = () => {
           </LogoLinkWrapper>
           {isOpen && (
             <MediaLinkWrapper>
-              <IconComponent
-                name="instagram"
-                image={data.home.footer.info.ig.icon}
-                href={data.home.footer.info.ig.link}
-              />
-              <IconComponent
-                name="facebook"
-                image={data.home.footer.info.fb.icon}
-                href={data.home.footer.info.fb.link}
-              />
+              <a href={data.home.footer.info.ig.link}>
+                <MediaIcon className="fab fa-instagram"></MediaIcon>
+              </a>
+              <a href={data.home.footer.info.ig.link}>
+                <MediaIcon className="fab fa-facebook-square"></MediaIcon>
+              </a>
             </MediaLinkWrapper>
           )}
         </Header>

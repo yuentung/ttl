@@ -14,21 +14,21 @@ const Wrapper = styled.button`
   &:hover {
     border: 2px solid #2ECA6A;
 
-    > span {
+    > i {
       color: #2ECA6A;
     }
   }
 `;
 
-const Icon = styled.span`
-  padding: 0;
+const Icon = styled.i`
+  line-height: 40px;
   color: #C4C4C4;
   transition: none;
 `;
 
 const ArrowButton = ({ handleButtonClick, children }) => (
   <Wrapper onClick={handleButtonClick}>
-    <Icon className="material-icons">{children}</Icon>
+    <Icon className={`far fa-${children}`}></Icon>
   </Wrapper>
 );
 

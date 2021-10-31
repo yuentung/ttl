@@ -16,6 +16,14 @@ const Wrapper = styled.button`
   ${({ backgroundColor }) => backgroundColor && `background-color: ${backgroundColor}`};
   cursor: pointer;
 
+  &:hover {
+    ${({ border, hoverColor }) => border ? `color: ${hoverColor}; border-color: ${hoverColor};` : `background-color: ${hoverColor}`};
+  }
+
+  &:active {
+    ${({ border, activeColor }) => border ? `color: ${activeColor} border-color: ${activeColor};` : `background-color: ${activeColor}`};
+  }
+
   > span {
     margin-left: 12px;
     font-size: 19px;
@@ -31,13 +39,15 @@ const Wrapper = styled.button`
   }
 `;
 
-const Button = ({ className, border, color, backgroundColor, isFluid, handleButtonClick, children }) => {
+const Button = ({ className, border, color, backgroundColor, hoverColor, activeColor, isFluid, handleButtonClick, children }) => {
   return (
     <Wrapper
       className={className}
       border={border}
       color={color}
       backgroundColor={backgroundColor}
+      hoverColor={hoverColor}
+      activeColor={activeColor}
       isFluid={isFluid}
       onClick={handleButtonClick}
     >

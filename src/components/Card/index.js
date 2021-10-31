@@ -6,9 +6,16 @@ const Wrapper = styled.li`
   display: flex;
   flex-direction: column;
   filter: drop-shadow(16px 16px 24px rgba(203, 201, 201, 0.25));
+  overflow: hidden;
+
+  &:hover > img {
+    transform: scale(1.1);
+  }
 `;
 
 const Image = styled.img`
+  position: relative;
+  z-index: -1;
   display: block;
   width: 100%;
   height: 237px;
@@ -46,10 +53,10 @@ const Description = styled.p`
   }
 `;
 
-const Icon = styled.span`
+const Icon = styled.i`
   margin-top: auto;
   margin-left: auto;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   color: #2ECA6A;
   cursor: pointer;
@@ -63,7 +70,7 @@ const Card = ({ image, title, description }) => {
       <Content>
         <Title>{title}</Title>
         <Description>{description}</Description>
-        <Icon className="material-icons">arrow_forward</Icon>
+        <Icon className="far fa-arrow-right"></Icon>
       </Content>
     </Wrapper>
   );

@@ -6,6 +6,7 @@ import Button from '../../../components/Button';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import { forMobile, greaterThanMobile } from '../../../theme/breakpoints';
 import data from '../../../constants/data';
+import ArrowImage from '../../../constants/images/arrow.svg';
 
 const Wrapper = styled.div`
   position: relative;
@@ -106,6 +107,10 @@ const SubTitle = styled.p`
     }
 `;
 
+const ArrowIcon = styled.img`
+    margin-left: 8px;
+`;
+
 const Swiper = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const { image, title, subTitle } = data.home.swiper[selectedIndex];
@@ -141,9 +146,11 @@ const Swiper = () => {
       <Button
         color="#FFFFFF"
         backgroundColor="#2ECA6A"
+        hoverColor="#27B95F"
+        activeColor="#1CA04F"
       >
         聯絡我們
-        <span className="material-icons">east</span>
+        <ArrowIcon src={ArrowImage} alt="arrow icon" />
       </Button>
     </Wrapper>
   );

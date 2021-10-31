@@ -4,7 +4,7 @@ import SwitchButton from './SwitchButton';
 import Card from '../../../components/Card';
 import Button from '../../../components/Button';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
-import { forMobile, greaterThanMobile } from '../../../theme/breakpoints';
+import { forDesktop, forMobile, greaterThanMobile } from '../../../theme/breakpoints';
 import data from '../../../constants/data';
 
 const Wrapper = styled.div`
@@ -128,7 +128,7 @@ const ProductList = styled.ul`
       width: 23.5%;
     }
 
-    @media (max-width: 1200px) {
+    ${forDesktop} {
       > li {
         width: 32%;
       }
@@ -154,10 +154,11 @@ const ProductList = styled.ul`
 `;
 
 const CustomButton = styled(Button)`
-  padding: 20px 72px;
-  border: 2px solid #2ECA6A;
   margin: 0 auto;
-  color: #2ECA6A;
+
+  ${greaterThanMobile} {
+    padding: 20px 72px;
+  }
 
   ${forMobile} {
     display: none;
@@ -207,7 +208,14 @@ const Products = () => {
           })}
         </ProductList>
       </ProductWrapper>
-      <CustomButton>VIEW MORE</CustomButton>
+      <CustomButton
+        border="2px solid #2ECA6A"
+        color="#2ECA6A"
+        hoverColor="#27B95F"
+        activeColor="#1CA04F"
+      >
+        VIEW MORE
+      </CustomButton>
     </Wrapper>
   );
 };

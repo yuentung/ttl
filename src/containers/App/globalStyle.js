@@ -67,6 +67,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     letter-spacing: 0.12em;
     transition: all .5s;
+    -webkit-font-smoothing: antialiased;
   }
 
   body {

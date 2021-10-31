@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import useMedia from 'use-media';
 import styled from 'styled-components';
-import { greaterThanMobile, forMobile } from '../../../theme/breakpoints';
+import { forDesktop, greaterThanDesktop } from '../../../theme/breakpoints';
 import data from '../../../constants/data';
 
 const Wrapper = styled.div`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     margin-right: 60px;
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     flex-grow: 1;
     padding: 60px 40px;
     overflow-y: scroll;
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 `;
 
 const Background = styled.div`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     position: absolute;
     top: 110px;
     right: 0;
@@ -31,7 +31,7 @@ const Background = styled.div`
     overflow: hidden;
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     display: none;
   }
 `;
@@ -39,19 +39,19 @@ const Background = styled.div`
 const InnerWrapper = styled.ul`
   display: flex;
 
-  ${forMobile} {
+  ${forDesktop} {
       flex-direction: column;
   }
 `;
 
 const NavItem = styled.li`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     &:hover > ul {
       display: flex
     }
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     & + & {
       margin-top: 60px;
     }
@@ -61,26 +61,44 @@ const NavItem = styled.li`
 const NavLink = styled.a`
   display: flex;
   align-items: center;
-  font-weight: 400;
+  font-weight: 500;
   color: #FFFFFF;
 
-  > span {
-    margin-left: 4px;
+  > i {
+    margin-left: 12px;
+    font-size: 12px;
     transform: rotate(${({ selected }) => selected ? '180deg' : '360deg'});
   }
 
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
+    position: relative;
     padding: 39px 20px;
     font-size: 16px;
     line-height: 32px;
     letter-spacing: 1.2px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 28px;
+      left: 20px;
+      width: ${({ selected }) => selected ? 'calc(100% - 40px)' : '0px'};
+      height: 1px;
+      background-color: #FFFFFF;
+    }
+
+    &:hover {
+      &:after {
+        width: calc(100% - 40px);
+      }
+    }
 
     > span {
       font-size: 24px;
     }
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     font-size: 24px;
     line-height: 28px;
     letter-spacing: 2.5px;
@@ -94,25 +112,33 @@ const NavLink = styled.a`
 const SubNavList = styled.ul`
   overflow: hidden;
 
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     display: flex;
     justify-content: flex-end;
     padding: 40px 80px;
+    padding-right: ${({ index }) => index === 1 ? '235px' : (index === 2 ? '130px' : '80px')};
+    transition: none;
+    animation: show .8s;
+
+    @keyframes show {
+      0% { opacity: 0 }
+      100% { opacity: 1 }
+    }
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     max-height: ${({ selected }) => selected ? '1000px' : '0'};
     margin-left: 24px;
   }
 `;
 
 const SubNavItem = styled.li`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     & + & {
       margin-left: 40px;
     }
   }
-  ${forMobile} {
+  ${forDesktop} {
     margin-top: 24px;
   }
 `;
@@ -125,7 +151,7 @@ const SubNavLink = styled.a`
     letter-spacing: 8%;
   }
 
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     font-size: 16px;
     line-height: 32px;
     letter-spacing: 1.2px;
@@ -138,7 +164,7 @@ const SubNavLink = styled.a`
     }
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     font-size: 20px;
     line-height: 30px;
     letter-spacing: 2.5px;
@@ -152,7 +178,7 @@ const SubNavLink = styled.a`
 `;
 
 const LastNavList = styled.ul`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: repeat(4, 24px);
@@ -161,13 +187,13 @@ const LastNavList = styled.ul`
     margin-top: 12px;
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     margin-left: 20px;
   }
 `;
 
 const LastNavItem = styled.li`
-  ${forMobile} {
+  ${forDesktop} {
     &:nth-child(1) {
       margin-top: 8px;
     }
@@ -182,7 +208,7 @@ const LastNavLink = styled.a`
   display: block;
   font-weight: 400;
 
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     font-size: 14px;
     line-height: 24px;
     letter-spacing: 1.2px;
@@ -193,7 +219,7 @@ const LastNavLink = styled.a`
     }
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     font-size: 16px;
     line-height: 32px;
     letter-spacing: 1.2px;
@@ -207,7 +233,7 @@ const LastNavLink = styled.a`
 
 const NavList = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  const isDesktop = useMedia({ minWidth: '769px' });
+  const isDesktop = useMedia({ minWidth: '1201px' });
   const { navList } = data.home.navbar;
 
   return (
@@ -237,7 +263,7 @@ const NavList = () => {
             >
               {text}
               {subNavList && (
-                <span className="material-icons">expand_more</span>
+                <i className="far fa-chevron-down"></i>
               )}
             </NavLink>
             {(!isDesktop && subNavList) && (
@@ -269,9 +295,13 @@ const NavList = () => {
           </NavItem>
         ))}
       </InnerWrapper>
-      <Background show={selectedIndex !== -1}>
+      <Background
+        onMouseEnter={() => setSelectedIndex(selectedIndex)}
+        onMouseLeave={() => setSelectedIndex(-1)}
+        show={selectedIndex !== -1}
+      >
         {(isDesktop && navList[selectedIndex]?.subNavList) && (
-          <SubNavList>
+          <SubNavList index={selectedIndex}>
             {navList[selectedIndex]?.subNavList.map(({ text, link, lastNavList }, index) => (
               <SubNavItem key={text}>
                 {text && (

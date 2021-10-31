@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Story from './Story';
 import ArrowButton from './ArrowButton';
 import usePagination from '../../../../hooks/usePagination';
-import { forMobile, greaterThanMobile } from '../../../../theme/breakpoints';
+import { forDesktop, forMobile, greaterThanMobile } from '../../../../theme/breakpoints';
 import data from '../../../../constants/data';
 
 const Wrapper = styled.div`
@@ -38,7 +38,7 @@ const StoryWrapper = styled.div`
     --item-width: calc(30%);
     --gap-width: calc(5%);
 
-    @media (max-width: 1200px) {
+    ${forDesktop} {
       --item-width: calc(45%);
       --gap-width: calc(10%);
     }
@@ -59,7 +59,7 @@ const StoryList = styled.ul`
       margin-left: var(--gap-width);
     }
 
-    @media (max-width: 1200px) {
+    ${forDesktop} {
       width: ${({ amount }) => `calc(${amount} * 45% + ${amount - 1} * 10%)`};
     }
   }
@@ -198,8 +198,8 @@ const Swiper = ({ className }) => {
         </StoryList>
       </StoryWrapper>
       <ButtonGroup>
-        <ArrowButton handleButtonClick={() => setPage(-1)}>chevron_left</ArrowButton>
-        <ArrowButton handleButtonClick={() => setPage(1)}>chevron_right</ArrowButton>
+        <ArrowButton handleButtonClick={() => setPage(-1)}>chevron-left</ArrowButton>
+        <ArrowButton handleButtonClick={() => setPage(1)}>chevron-right</ArrowButton>
       </ButtonGroup>
       <Timeline />
       <SquareWrapper>
