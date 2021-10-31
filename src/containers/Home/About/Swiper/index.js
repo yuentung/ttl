@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Story from './Story';
 import ArrowButton from './ArrowButton';
@@ -168,6 +168,14 @@ const TextImage = styled.img`
 const Swiper = ({ className }) => {
   const { textImage, storyList } = data.home.about;
   const [firstItem, setPage] = usePagination(storyList.length);
+
+  useEffect(() => {
+    const timeoutID = setTimeout(() => {
+      setPage(1);
+    }, 5000);
+
+    return () => clearTimeout(timeoutID);
+  }, [firstItem, setPage]);
 
   return (
     <Wrapper className={className}>
