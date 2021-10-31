@@ -14,14 +14,13 @@ const usePagination = totalItems => {
     currentPage: 0,
     direction: 1,
   });
-  const [showItem, setShowItem] = useState(0);
+  const [firstItem, setFirstItem] = useState(0);
 
   useEffect(() => {
     if (currentState.currentPage === Math.ceil(totalItems / itemsPerPage - 1)) {
-      setShowItem(totalItems - 1);
+      setFirstItem(totalItems - itemsPerPage);
     } else {
-      const currentItems = [...Array(itemsPerPage).keys()].map(index => currentState.currentPage * itemsPerPage + index);
-      setShowItem(currentItems[currentState.direction === -1 ? 0 : itemsPerPage - 1]);
+      setFirstItem(currentState.currentPage * itemsPerPage);
     }
   }, [currentState, itemsPerPage, totalItems]);
 
@@ -34,7 +33,7 @@ const usePagination = totalItems => {
     }));
   };
 
-  return [showItem, setPage];
+  return [firstItem, setPage];
 };
 
 export default usePagination;

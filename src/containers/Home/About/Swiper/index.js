@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Story from './Story';
 import ArrowButton from './ArrowButton';
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
   ${greaterThanMobile} {
     max-width: 1240px;
-    padding: 124px 112px 200px 84px;
+    padding: 124px 32px 200px 84px;
     margin: 0 100px;
 
     @media (min-width: 1440px) {
@@ -33,42 +33,32 @@ const StoryWrapper = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-
-  ${greaterThanMobile} {  
-    --item-width: calc(30%);
-    --gap-width: calc(5%);
-
-    ${forDesktop} {
-      --item-width: calc(45%);
-      --gap-width: calc(10%);
-    }
-  }
 `;
 
 const StoryList = styled.ul`
   display: flex;
-  
+
+  > li {
+    width: ${({ amount }) => `calc(100% / ${amount})`};
+  }
+
   ${greaterThanMobile} {
-    width: ${({ amount }) => `calc(${amount} * 30% + ${amount - 1} * 5%)`};
+    width: ${({ amount }) => `calc(${amount} * 33.33%)`};
+    margin-left: ${({ firstItem }) => `calc(${firstItem} * -33.33%)`};
 
     > li {
-      width: var(--item-width);
-    }
-  
-    > li + li {
-      margin-left: var(--gap-width);
+      margin-right: 80px;
     }
 
     ${forDesktop} {
-      width: ${({ amount }) => `calc(${amount} * 45% + ${amount - 1} * 10%)`};
+      width: ${({ amount }) => `calc(${amount} * 50%)`};
+      margin-left: ${({ firstItem }) => `calc(${firstItem} * -50%)`};
     }
   }
 
   ${forMobile} {
-    > li {
-      flex-shrink: 0;
-      width: 100%;
-    }
+    width: ${({ amount }) => `calc(${amount} * 100%)`};
+    margin-left: ${({ firstItem }) => `calc(${firstItem} * -100%)`};
   }
 `;
 
@@ -177,21 +167,12 @@ const TextImage = styled.img`
 
 const Swiper = ({ className }) => {
   const { textImage, storyList } = data.home.about;
-  const [showItem, setPage] = usePagination(storyList.length);
-
-  const scrollToTarget = useCallback(targetIndex => {
-    const target = document.querySelector(`.storyList > li:nth-child(${targetIndex + 1})`);
-    target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
-  }, []);
-
-  useEffect(() => {
-    scrollToTarget(showItem);
-  }, [scrollToTarget, showItem]);
+  const [firstItem, setPage] = usePagination(storyList.length);
 
   return (
     <Wrapper className={className}>
       <StoryWrapper>
-        <StoryList className="storyList" amount={storyList.length}>
+        <StoryList amount={storyList.length} firstItem={firstItem}>
           {storyList.map(storyItem => (
             <Story key={storyItem.time} {...storyItem} />
           ))}
