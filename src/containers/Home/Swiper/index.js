@@ -123,7 +123,7 @@ const Swiper = () => {
     }, 5000);
 
     setTimeout(() => {
-      document.querySelector('.bannerImage').style.animation = 'scale 5s'
+      document.querySelector('.bannerImage').style.animation = 'scale 5s';
     }, 50);
 
     return () => {

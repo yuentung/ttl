@@ -33,7 +33,7 @@ const usePagination = totalItems => {
     }));
   };
 
-  return [firstItem, setPage];
+  return [firstItem, firstItem + 2 * itemsPerPage > totalItems, setPage];
 };
 
 export default usePagination;

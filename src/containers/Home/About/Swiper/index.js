@@ -66,7 +66,7 @@ const ButtonGroup = styled.div`
   position: absolute;
   display: flex;
   justify-content: space-between;
-  width: 100px;
+  width: 108px;
 
   ${greaterThanMobile} {
     right: 60px;
@@ -167,7 +167,7 @@ const TextImage = styled.img`
 
 const Swiper = ({ className }) => {
   const { textImage, storyList } = data.home.about;
-  const [firstItem, setPage] = usePagination(storyList.length);
+  const [firstItem, isLastPage, setPage] = usePagination(storyList.length);
 
   useEffect(() => {
     const timeoutID = setTimeout(() => {
@@ -188,7 +188,13 @@ const Swiper = ({ className }) => {
       </StoryWrapper>
       <ButtonGroup>
         <ArrowButton handleButtonClick={() => setPage(-1)}>chevron-left</ArrowButton>
-        <ArrowButton handleButtonClick={() => setPage(1)}>chevron-right</ArrowButton>
+        <ArrowButton
+          handleButtonClick={() => setPage(1)}
+          firstItem={firstItem}
+          isLastPage={isLastPage}
+        >
+          chevron-right
+        </ArrowButton>
       </ButtonGroup>
       <Timeline />
       <SquareWrapper>
