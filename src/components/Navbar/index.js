@@ -152,6 +152,8 @@ const Navbar = () => {
     setIsOpen(false);
   }, [isDesktop])
 
+  const isHomePage = pathname === process.env.PUBLIC_URL || pathname === `${process.env.PUBLIC_URL}/`;
+
   return (
     <Wrapper isOpen={isOpen}>
       <MenuButtonWrapper>
@@ -160,10 +162,10 @@ const Navbar = () => {
           handleButtonClick={() => setIsOpen(prevState => !prevState)}
         />
       </MenuButtonWrapper>
-      <InnerWrapper isTop={pathname === process.env.PUBLIC_URL && isTop} isOpen={isOpen} fullHeight={height}>
+      <InnerWrapper isTop={isHomePage && isTop} isOpen={isOpen} fullHeight={height}>
         {isOpen && <Mask />}
         <Header>
-          <LogoLinkWrapper isTop={pathname === process.env.PUBLIC_URL && isTop} isOpen={isOpen}>
+          <LogoLinkWrapper isTop={isHomePage && isTop} isOpen={isOpen}>
             <LogoLink
               width={isDesktop ? 216 : (isOpen ? 128 : 160)}
               color={(pathname !== process.env.PUBLIC_URL || !isTop || isOpen) ? 'dark' : 'light'}
