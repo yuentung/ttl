@@ -111,6 +111,7 @@ const ProductWrapper = styled.div`
   }
 
   ${forMobile} {
+    margin-bottom: 80px;
     overflow: auto;
 
     &::-webkit-scrollbar {
@@ -154,15 +155,8 @@ const ProductList = styled.ul`
 `;
 
 const CustomButton = styled(Button)`
+  padding: 20px 72px;  
   margin: 0 auto;
-
-  ${greaterThanMobile} {
-    padding: 20px 72px;
-  }
-
-  ${forMobile} {
-    display: none;
-  }
 `
 
 const Products = () => {

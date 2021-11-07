@@ -26,11 +26,17 @@ const usePagination = totalItems => {
 
   const setPage = dir => {
     if (dir === -1 && currentState.currentPage === 0) return;
-    if (dir === 1 && currentState.currentPage === Math.ceil(totalItems / itemsPerPage - 1)) return;
-    setCurrentState(prevState => ({
-      currentPage: prevState.currentPage + dir,
-      direction: dir,
-    }));
+    if (dir === 1 && currentState.currentPage === Math.ceil(totalItems / itemsPerPage - 1)) {
+      setCurrentState({
+        currentPage: 0,
+        direction: 1,
+      });
+    } else {
+      setCurrentState(prevState => ({
+        currentPage: prevState.currentPage + dir,
+        direction: dir,
+      }));
+    }
   };
 
   return [firstItem, firstItem + 2 * itemsPerPage > totalItems, setPage];

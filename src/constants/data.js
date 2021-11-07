@@ -14,6 +14,7 @@ import VCProduct1 from './images/vc_product1.png';
 import VCProduct2 from './images/vc_product2.png';
 import VCProduct3 from './images/vc_product3.png';
 import VCProduct4 from './images/vc_product4.png';
+import ContactBanner from './images/contact.png';
 
 const data = {
     home: {
@@ -223,7 +224,7 @@ const data = {
                 },
                 {
                     text: '聯絡我們',
-                    link: '',
+                    link: '/contact',
                 },
             ],
         },
@@ -410,6 +411,13 @@ const data = {
             ],
         }
     },
+    contact: {
+        banner: ContactBanner,
+        title: 'CONTACT US',
+        subTitle: '聯絡我們',
+        description: '我們會在一週內由專人提供您專業的回覆，或是您可以從下方的管道聯繫我們。',
+    },
+    about: {},
 };
 
 export default data;

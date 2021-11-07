@@ -122,13 +122,14 @@ const Swiper = () => {
       else setSelectedIndex(1);
     }, 5000);
 
+    const bannerImage = document.querySelector('.bannerImage');
     setTimeout(() => {
-      document.querySelector('.bannerImage').style.animation = 'scale 5s';
+      bannerImage.style.animation = 'scale 5s';
     }, 50);
 
     return () => {
       clearTimeout(timeoutID);
-      document.querySelector('.bannerImage').style.animation = '';
+      if (bannerImage) bannerImage.style.animation = '';
     }
   }, [selectedIndex]);
 

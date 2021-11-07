@@ -7,17 +7,17 @@ const Wrapper = styled.button`
   justify-content: center;
   align-items: center;
   ${({ isFluid }) => isFluid && 'width: 100%'};
+  ${({ border }) => border && `border: ${border};`}
   font-size: 16px;
   line-height: 19px;
   letter-spacing: 0.12em;
   font-weight: 700;
-  ${({ border }) => border && `border: ${border}`};
   ${({ color }) => color && `color: ${color}`};
   ${({ backgroundColor }) => backgroundColor && `background-color: ${backgroundColor}`};
   cursor: pointer;
 
   &:hover {
-    ${({ border, hoverColor }) => border ? `color: ${hoverColor}; border-color: ${hoverColor};` : `background-color: ${hoverColor}`};
+    ${({ border, hoverColor }) => border ? `color: ${hoverColor}; border-color: ${hoverColor}; transform: scale(0.9);` : `background-color: ${hoverColor}`};
   }
 
   &:active {

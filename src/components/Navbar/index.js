@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import useMedia from 'use-media';
 import styled from 'styled-components';
 import LogoLink, { Wrapper as LogoLinkImage } from '../LogoLink';
@@ -52,11 +53,11 @@ const InnerWrapper = styled.div`
 
   ${forDesktop} {
     position: absolute;
-    top: ${({ isOpen, height }) => isOpen ? '0' : `calc(92px - ${height}px)`};
+    top: ${({ isOpen, fullHeight }) => isOpen ? '0' : `calc(92px - ${fullHeight}px)`};
     right: 0;
     left: 0;
     flex-direction: column-reverse;
-    height: ${({ height }) => `${height}px`};
+    height: ${({ fullHeight }) => `${fullHeight}px`};
     ${({ isOpen }) => isOpen && 'background-color: rgba(46, 202, 106, 0.7);'}
     backdrop-filter: blur(${({ isTop, isOpen }) => (!isTop || isOpen) ? '54.3656px' : '0'});
   }
@@ -123,9 +124,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [height, setHeight] = useState(window.innerHeight);
   const isDesktop = useMedia({ minWidth: '1201px' });
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    window.addEventListener('scroll', e => {
+    window.addEventListener('scroll', () => {
       if (window.pageYOffset === 0) setIsTop(true);
       else setIsTop(false);
     });
@@ -158,13 +160,13 @@ const Navbar = () => {
           handleButtonClick={() => setIsOpen(prevState => !prevState)}
         />
       </MenuButtonWrapper>
-      <InnerWrapper isTop={isTop} isOpen={isOpen} height={height}>
+      <InnerWrapper isTop={pathname === process.env.PUBLIC_URL && isTop} isOpen={isOpen} fullHeight={height}>
         {isOpen && <Mask />}
         <Header>
-          <LogoLinkWrapper isTop={isTop} isOpen={isOpen}>
+          <LogoLinkWrapper isTop={pathname === process.env.PUBLIC_URL && isTop} isOpen={isOpen}>
             <LogoLink
               width={isDesktop ? 216 : (isOpen ? 128 : 160)}
-              color={(!isTop || isOpen) ? 'dark' : 'light'}
+              color={(pathname !== process.env.PUBLIC_URL || !isTop || isOpen) ? 'dark' : 'light'}
             />
           </LogoLinkWrapper>
           {isOpen && (
@@ -178,7 +180,7 @@ const Navbar = () => {
             </MediaLinkWrapper>
           )}
         </Header>
-        <NavList />
+        <NavList setIsOpen={setIsOpen} />
       </InnerWrapper>
     </Wrapper>
   );

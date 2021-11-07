@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import useMedia from 'use-media';
 import styled from 'styled-components';
 import { forDesktop, greaterThanDesktop } from '../../../theme/breakpoints';
@@ -58,7 +59,7 @@ const NavItem = styled.li`
   }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   font-weight: 500;
@@ -231,7 +232,7 @@ const LastNavLink = styled.a`
   }
 `;
 
-const NavList = () => {
+const NavList = ({ setIsOpen }) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const isDesktop = useMedia({ minWidth: '1201px' });
   const { navList } = data.home.navbar;
@@ -242,7 +243,7 @@ const NavList = () => {
         {navList.map(({ text, link, subNavList }, index) => (
           <NavItem key={text}>
             <NavLink
-              href={link}
+              to={process.env.PUBLIC_URL + link}
               onClick={(e) => {
                 if (subNavList) {
                   e.preventDefault();
@@ -250,6 +251,8 @@ const NavList = () => {
                     if (index !== selectedIndex) setSelectedIndex(index);
                     else setSelectedIndex(-1);
                   }
+                } else {
+                  setIsOpen(false);
                 }
               }}
               onMouseEnter={() => {

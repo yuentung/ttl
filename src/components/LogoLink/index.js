@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import data from '../../constants/data';
 
-export const Wrapper = styled.a`
+export const Wrapper = styled(Link)`
   display: block;
   width: ${({ width }) => `${width}px`};
   height: ${({ width }) => `${Math.ceil(width / 4.7)}px`};
@@ -16,7 +17,7 @@ export const Wrapper = styled.a`
 const LogoLink = ({ width, color }) => {
   return (
     <Wrapper
-      href="index.html"
+      to={process.env.PUBLIC_URL}
       width={width}
       color={color}
     />

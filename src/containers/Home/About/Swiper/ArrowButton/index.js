@@ -15,7 +15,7 @@ const InnerWrapper = styled.div`
 
 const Icon = styled.i`
   font-weight: 700;
-  color: #2ECA6A;
+  color: #DCDCDC;
   transition: none;
 `;
 
@@ -111,23 +111,28 @@ const Wrapper = styled.div`
     ${RightHalfMask}, ${LeftHalfMask} {
       opacity: 0;
     }
+
+    ${Icon} {
+      color: #2ECA6A;
+    }
   }
 `;
 
 const ArrowButton = ({ handleButtonClick, firstItem, isLastPage, children }) => {
   useEffect(() => {
+    const rightArrowIcon = document.querySelector('.arrowBtn:nth-child(2) i');
     const rightHalfMask = document.querySelector('.arrowBtn:nth-child(2) .rightHalfMask');
     const leftHalfMask = document.querySelector('.arrowBtn:nth-child(2) .leftHalfMask');
 
-    if (!isLastPage) {
-      var timeoutID = setTimeout(() => {
-        rightHalfMask.style.animation = 'rotateToLeft 4.5s linear';
-        leftHalfMask.style.animation = 'rotateToRight 4.5s linear';
-      }, 500);
-    }
+    const timeoutID = setTimeout(() => {
+      rightArrowIcon.style.color = '#2ECA6A';
+      rightHalfMask.style.animation = 'rotateToLeft 4.5s linear';
+      leftHalfMask.style.animation = 'rotateToRight 4.5s linear';
+    }, 500);
 
     return () => {
       clearTimeout(timeoutID);
+      rightArrowIcon.style.color = '#DCDCDC';
       rightHalfMask.style.animation = '';
       leftHalfMask.style.animation = '';
     }
