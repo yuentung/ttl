@@ -168,7 +168,7 @@ const Navbar = () => {
           <LogoLinkWrapper isTop={isHomePage && isTop} isOpen={isOpen}>
             <LogoLink
               width={isDesktop ? 216 : (isOpen ? 128 : 160)}
-              color={(pathname !== process.env.PUBLIC_URL || !isTop || isOpen) ? 'dark' : 'light'}
+              color={(!isHomePage || !isTop || isOpen) ? 'dark' : 'light'}
             />
           </LogoLinkWrapper>
           {isOpen && (
