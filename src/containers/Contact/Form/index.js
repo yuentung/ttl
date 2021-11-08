@@ -1,12 +1,17 @@
 import React from 'react';
-import { useFormik } from 'formik';
+import {
+  Formik,
+  Form as DefaultForm,
+  Field,
+  ErrorMessage,
+} from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
 import Map from '../../../components/Map';
 import Button from '../../../components/Button';
 import { forMobile, forSmallMobile, greaterThanMobile } from '../../../theme/breakpoints';
 
-const Wrapper = styled.form`
+const Wrapper = styled(DefaultForm)`
   background-color: #FFFFFF;
 
   ${greaterThanMobile} {
@@ -74,14 +79,20 @@ const Tag = styled.span`
   color: #E95B2E;
 `;
 
-const Field = styled.input`
+const CustomField = styled.input`
   width: 100%;
-  border: ${({ error }) => error ? '1px solid red' : 'none'};
+  border: none;
+  ${({ isError }) => isError && 'outline: 1px solid #E95B2E;'}
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 1.2px;
   font-weight: 300;
   background-color: #F2F3F5;
+  transition: none;
+
+  &:focus {
+    outline: 1px solid #27B95F;
+  }
 
   &::placeholder {
     color: #7C7C7C;
@@ -98,26 +109,21 @@ const Field = styled.input`
   }
 `;
 
-const TextArea = styled.textarea`
-  width: 100%;
+const CustomTextArea = styled(CustomField)`
   height: 274px;
-  border: ${({ error }) => error ? '1px solid red' : 'none'};
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 1.2px;
-  font-weight: 300;
-  background-color: #F2F3F5;
   resize: none;
-  font-family: 'Noto Sans TC';
+`;
 
-  ${greaterThanMobile} {
-    padding: 36px 20px;
-    border-radius: 12px;
-  }
+const CustomErrorMessage = styled.div`
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  font-weight: 400;
+  color: #E95B2E;
 
-  ${forMobile} {
-    padding: 20px;
-    border-radius: 8px;
+  > i {
+    margin-right: 6px;
   }
 `;
 
@@ -222,6 +228,8 @@ const CustomMap = styled(Map)`
 `;
 
 const CustomButton = styled(Button)`
+  font-weight: 400;
+
   ${greaterThanMobile} {
     padding: 21px 156px;  
     margin: 0 auto;
@@ -234,102 +242,127 @@ const CustomButton = styled(Button)`
 `
 
 const Form = () => {
-  const {
-    touched,
-    errors,
-    handleSubmit,
-    getFieldProps,
-  } = useFormik({
-    initialValues: {
-      name: '',
-      phone: '',
-      mail: '',
-      content: '',
-    },
-    validationSchema: Yup.object({
-      name: Yup.string().required(),
-      phone: Yup.string().matches(/^(09)[0-9]{8}$/).required(),
-      mail: Yup.string().email().required(),
-      content: Yup.string().required(),
-    }),
-    onSubmit: (values, { resetForm }) => {
-      alert(JSON.stringify(values, null, 2));
-      resetForm();
-    },
-  });
-
   return (
-    <Wrapper onSubmit={handleSubmit}>
-      <InnerWrapper>
-        <LeftWrapper>
-          <FieldWrapper>
-            <Label htmlFor="name">姓名<Tag>必填</Tag></Label>
-            <Field
-              id="name"
-              type="text"
-              error={!!touched.name && !!errors.name}
-              {...getFieldProps('name')}
-            />
-          </FieldWrapper>
-          <FieldWrapper>
-            <Label htmlFor="phone">電話號碼<Tag>必填</Tag></Label>
-            <Field
-              id="phone"
-              type="text"
-              placeholder="0978639128"
-              error={!!touched.phone && !!errors.phone}
-              {...getFieldProps('phone')}
-            />
-          </FieldWrapper>
-          <FieldWrapper>
-            <Label htmlFor="mail">電子信箱<Tag>必填</Tag></Label>
-            <Field
-              id="mail"
-              type="text"
-              placeholder="sample@gmail.com"
-              error={!!touched.mail && !!errors.mail}
-              {...getFieldProps('mail')}
-            />
-          </FieldWrapper>
-          <FieldWrapper>
-            <Label htmlFor="content">留言內容<Tag>必填</Tag></Label>
-            <TextArea
-              id="content"
-              type="text"
-              error={!!touched.content && !!errors.content}
-              {...getFieldProps('content')}
-            />
-          </FieldWrapper>
-        </LeftWrapper>
-        <RightWrapper>
-          <TopWrapper>
-            <InfoWrapper>
-              <InfoTitle>聯絡電話</InfoTitle>
-              <InfoDescription>03-3753270</InfoDescription>
-            </InfoWrapper>
-            <InfoWrapper>
-              <InfoTitle>傳真</InfoTitle>
-              <InfoDescription>03-3620057</InfoDescription>
-            </InfoWrapper>
-            <InfoWrapper>
-              <InfoTitle>信箱</InfoTitle>
-              <InfoDescription>t3753270@gmail.com</InfoDescription>
-            </InfoWrapper>
-          </TopWrapper>
-          <Address>桃園市八德區廣福路1123巷51之6號</Address>
-          <CustomMap />
-        </RightWrapper>
-      </InnerWrapper>
-      <CustomButton
-        border="1px solid #2ECA6A"
-        color="#2ECA6A"
-        hoverColor="#27B95F"
-        activeColor="#1CA04F"
-        type="submit"
-      >
-        送出內容
-      </CustomButton>
-    </Wrapper>
+    <Formik
+      initialValues={{
+        name: '',
+        phone: '',
+        email: '',
+        message: '',
+      }}
+      validationSchema={Yup.object({
+        name: Yup.string().required(),
+        phone: Yup.string().matches(/^(09)[0-9]{8}$/).required(),
+        email: Yup.string().email().required(),
+        message: Yup.string().required(),
+      })}
+      onSubmit={(values, { resetForm }) => {
+        alert(JSON.stringify(values, null, 2));
+        resetForm();
+      }}
+    >
+      {formik => (
+        <Wrapper>
+          <InnerWrapper>
+            <LeftWrapper>
+              <FieldWrapper>
+                <Label htmlFor="name">姓名<Tag>必填</Tag></Label>
+                <Field name="name">
+                  {({ field, meta: { touched, error } }) => (
+                    <CustomField
+                      isError={touched && error}
+                      type="text"
+                      placeholder="請輸入" {...field}
+                    />
+                  )}
+                </Field>
+                <ErrorMessage name="name">
+                  {msg => <CustomErrorMessage><i className="fas fa-exclamation-triangle"></i>{msg}</CustomErrorMessage>}
+                </ErrorMessage>
+              </FieldWrapper>
+              <FieldWrapper>
+                <Label htmlFor="phone">電話號碼<Tag>必填</Tag></Label>
+                <Field name="phone">
+                  {({ field, meta: { touched, error } }) => (
+                    <CustomField
+                      isError={touched && error}
+                      type="tel"
+                      placeholder="0978639128"
+                      {...field}
+                    />
+                  )}
+                </Field>
+                <ErrorMessage name="phone">
+                  {msg => <CustomErrorMessage><i className="fas fa-exclamation-triangle"></i>{msg}</CustomErrorMessage>}
+                </ErrorMessage>
+              </FieldWrapper>
+              <FieldWrapper>
+                <Label htmlFor="mail">電子信箱<Tag>必填</Tag></Label>
+                <Field name="email">
+                  {({ field, meta: { touched, error } }) => (
+                    <CustomField
+                      isError={touched && error}
+                      type="email"
+                      placeholder="請輸入"
+                      {...field}
+                    />
+                  )}
+                </Field>
+                <ErrorMessage name="email">
+                  {msg => <CustomErrorMessage><i className="fas fa-exclamation-triangle"></i>{msg}</CustomErrorMessage>}
+                </ErrorMessage>
+              </FieldWrapper>
+              <FieldWrapper>
+                <Label htmlFor="content">留言內容<Tag>必填</Tag></Label>
+                <Field
+                  name="message"
+                >
+                  {({ field, meta: { touched, error } }) => (
+                    <CustomTextArea
+                      as="textarea"
+                      isError={touched && error}
+                      type="text"
+                      {...field}
+                    />
+                  )}
+                </Field>
+                <ErrorMessage name="message">
+                  {msg => <CustomErrorMessage><i className="fas fa-exclamation-triangle"></i>{msg}</CustomErrorMessage>}
+                </ErrorMessage>
+              </FieldWrapper>
+            </LeftWrapper>
+            <RightWrapper>
+              <TopWrapper>
+                <InfoWrapper>
+                  <InfoTitle>聯絡電話</InfoTitle>
+                  <InfoDescription>03-3753270</InfoDescription>
+                </InfoWrapper>
+                <InfoWrapper>
+                  <InfoTitle>傳真</InfoTitle>
+                  <InfoDescription>03-3620057</InfoDescription>
+                </InfoWrapper>
+                <InfoWrapper>
+                  <InfoTitle>信箱</InfoTitle>
+                  <InfoDescription>t3753270@gmail.com</InfoDescription>
+                </InfoWrapper>
+              </TopWrapper>
+              <Address>桃園市八德區廣福路1123巷51之6號</Address>
+              <CustomMap />
+            </RightWrapper>
+          </InnerWrapper>
+          <CustomButton
+            border="1px solid #2ECA6A"
+            color="#2ECA6A"
+            hoverColor="#27B95F"
+            activeColor="#1CA04F"
+            type="submit"
+            disabled={formik.isSubmitting}
+          >
+            送出內容
+          </CustomButton>
+        </Wrapper>
+      )}
+    </Formik>
   );
 };
 

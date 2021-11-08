@@ -18,7 +18,6 @@ export const ResetStyle = createGlobalStyle`
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
 
@@ -83,7 +82,7 @@ export const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
 
-  div, span, h1, h2, h3, h4, h5, h6, p, a {
+  * {
     font-family: "Roboto", "Noto Sans TC", sans-serif;
   }
 `;
