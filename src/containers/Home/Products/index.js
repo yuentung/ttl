@@ -154,8 +154,7 @@ const ProductList = styled.ul`
   }
 `;
 
-const CustomButton = styled(Button)`
-  padding: 20px 72px;  
+const CustomButton = styled(Button)` 
   margin: 0 auto;
 `
 
@@ -203,7 +202,7 @@ const Products = () => {
         </ProductList>
       </ProductWrapper>
       <CustomButton
-        border="2px solid #2ECA6A"
+        borderColor="#2ECA6A"
         color="#2ECA6A"
         hoverColor="#27B95F"
         activeColor="#1CA04F"
