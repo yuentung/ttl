@@ -4,12 +4,13 @@ import {
   Form as DefaultForm,
 } from 'formik';
 import * as Yup from 'yup';
+import emailjs from 'emailjs-com';
 import styled from 'styled-components';
 import Field from './Field';
 import SuccessMessage from './SuccessMessage';
 import Map from '../../../components/Map';
 import Button from '../../../components/Button';
-import { forMobile, forSmallMobile, greaterThanMobile } from '../../../theme/breakpoints';
+import { forDesktop, forMobile, greaterThanDesktop, greaterThanMobile } from '../../../theme/breakpoints';
 
 const Wrapper = styled(DefaultForm)`
   background-color: #FFFFFF;
@@ -24,30 +25,30 @@ const Wrapper = styled(DefaultForm)`
 `;
 
 const InnerWrapper = styled.div`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     display: flex;
     margin-bottom: 80px;
   }
 `;
 
 const LeftWrapper = styled.div`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     flex-grow: 1;
     margin-right: 56px;
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     margin-bottom: 24px;
   }
 `;
 
 const RightWrapper = styled.div`
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     display: flex;
     flex-direction: column;
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     display: none;
   }
 `;
@@ -55,13 +56,13 @@ const RightWrapper = styled.div`
 const TopWrapper = styled.div`
   border: 1px solid #D3D3D3;
 
-  ${greaterThanMobile} {
+  ${greaterThanDesktop} {
     padding: 40px;
     margin-top: 36px;
     margin-bottom: auto;
   }
 
-  ${forMobile} {
+  ${forDesktop} {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -71,80 +72,43 @@ const TopWrapper = styled.div`
 `;
 
 const InfoWrapper = styled.div`
-  ${greaterThanMobile} {
-    display: flex;
+  display: flex;
 
-    & + & {
-      margin-top: 16px;
-    }
-  }
-
-  ${forMobile} {
-    ${forSmallMobile} {
-      &:last-child {
-        margin-top: 16px;
-      }
-    }
+  & + & {
+    margin-top: 16px;
   }
 `;
 
 const InfoTitle = styled.div`
   width: 70px;
+  margin-right: 24px;
+  font-size: 16px;
   line-height: 32px;
   letter-spacing: 1.2px;
   font-weight: 400;
   color: #7C7C7C;
-
-  ${greaterThanMobile} {
-    margin-right: 24px;
-    font-size: 16px;
-  }
-
-  ${forMobile} {
-    font-size: 14px;
-  }
 `;
 
 const InfoDescription = styled.div`
   line-height: 32px;
   letter-spacing: 0.05em;
+  font-size: 20px;
   font-weight: 300;
   color: #7C7C7C;
-
-  ${greaterThanMobile} {
-    font-size: 20px;
-  }
-
-  ${forMobile} {
-    font-size: 16px;
-  }
 `;
 
 const Address = styled.div`
   margin-bottom: 48px;
   text-align: center;
+  font-size: 16px;
   line-height: 32px;
   letter-spacing: 1.2px;
   font-weight: 400;
   color: #7C7C7C;
-
-  ${greaterThanMobile} {
-    font-size: 16px;
-  }
-
-  ${forMobile} {
-    font-size: 14px;
-  }
 `;
 
 const CustomMap = styled(Map)`
-  ${greaterThanMobile} {
-    height: 361px;
-  }
-
-  ${forMobile} {
-    height: 271px;
-  }
+  height: 361px;
 `;
 
 const CustomButton = styled(Button)`
@@ -173,16 +137,14 @@ const Form = () => {
         message: Yup.string().required(),
       })}
       onSubmit={async (values, { resetForm }) => {
-        await new Promise(resolve => {
-          setTimeout(() => {
-            console.log(JSON.stringify(values, null, 2));
-            resolve();
-          }, 1000);
-        }).then(() => {
-          resetForm();
-          setShowMessage(true);
-          setTimeout(() => setShowMessage(false), 2000);
-        });
+        await emailjs.send('service_e1xk04s', 'template_u6ejf0v', { ...values }, 'user_vx8JH9iDr7zISPW0efVHG')
+          .then(() => {
+            resetForm();
+            setShowMessage(true);
+            setTimeout(() => setShowMessage(false), 2000);
+          }, (error) => {
+            console.error(JSON.stringify(error));
+          });
       }}
     >
       {({ isSubmitting }) => (

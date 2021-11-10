@@ -262,7 +262,6 @@ const NavList = ({ setIsOpen }) => {
                 if (isDesktop && subNavList) setSelectedIndex(-1);
               }}
               selected={index === selectedIndex}
-              hasChild={!!subNavList}
             >
               {text}
               {subNavList && (
