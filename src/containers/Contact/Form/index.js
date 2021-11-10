@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Formik,
   Form as DefaultForm,
@@ -6,6 +6,7 @@ import {
 import * as Yup from 'yup';
 import styled from 'styled-components';
 import Field from './Field';
+import SuccessMessage from './SuccessMessage';
 import Map from '../../../components/Map';
 import Button from '../../../components/Button';
 import { forMobile, forSmallMobile, greaterThanMobile } from '../../../theme/breakpoints';
@@ -155,6 +156,8 @@ const CustomButton = styled(Button)`
 `
 
 const Form = () => {
+  const [showMessage, setShowMessage] = useState(false);
+
   return (
     <Formik
       initialValues={{
@@ -169,9 +172,17 @@ const Form = () => {
         email: Yup.string().email().required(),
         message: Yup.string().required(),
       })}
-      onSubmit={(values, { resetForm }) => {
-        alert(JSON.stringify(values, null, 2));
-        resetForm();
+      onSubmit={async (values, { resetForm }) => {
+        await new Promise(resolve => {
+          setTimeout(() => {
+            console.log(JSON.stringify(values, null, 2));
+            resolve();
+          }, 1000);
+        }).then(() => {
+          resetForm();
+          setShowMessage(true);
+          setTimeout(() => setShowMessage(false), 2000);
+        });
       }}
     >
       {({ isSubmitting }) => (
@@ -187,7 +198,7 @@ const Form = () => {
               />
               <Field
                 name="phone"
-                label="電話號碼"
+                label="手機號碼"
                 type="tel"
                 placeholder="0978639128"
                 isRequired
@@ -235,6 +246,7 @@ const Form = () => {
           >
             送出內容
           </CustomButton>
+          <SuccessMessage show={showMessage} />
         </Wrapper>
       )}
     </Formik>

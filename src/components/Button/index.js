@@ -31,15 +31,10 @@ const Wrapper = styled.button`
   }
 `;
 
-const Button = ({ className, borderColor, color, backgroundColor, hoverColor, activeColor, isFluid, handleButtonClick, children }) => {
+const Button = ({ isFluid, handleButtonClick, children, ...props }) => {
   return (
     <Wrapper
-      className={className}
-      borderColor={borderColor}
-      color={color}
-      backgroundColor={backgroundColor}
-      hoverColor={hoverColor}
-      activeColor={activeColor}
+      {...props}
       isFluid={isFluid}
       onClick={handleButtonClick}
     >
