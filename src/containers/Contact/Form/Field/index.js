@@ -6,13 +6,13 @@ import { forMobile, greaterThanMobile } from '../../../../theme/breakpoints';
 const Wrapper = styled.div`
   ${greaterThanMobile} {
     & + & {
-      margin-top: 24px;
+      margin-top: 16px;
     }
   }
 
   ${forMobile} {
     & + & {
-      margin-top: 20px;
+      margin-top: 12px;
     }
   } 
 `;
@@ -41,10 +41,12 @@ const Input = styled.input`
   width: 100%;
   border: none;
   ${({ isError }) => isError && 'outline: 1px solid #E95B2E;'}
+  margin-bottom: 8px;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 1.2px;
-  font-weight: 300;
+  font-weight: 400;
+  color: #252525;
   background-color: #F2F3F5;
   transition: none;
 
@@ -53,16 +55,17 @@ const Input = styled.input`
   }
 
   &::placeholder {
+    font-weight: 300;
     color: #7C7C7C;
   }
 
   ${greaterThanMobile} {
-    padding: 36px 20px;
+    padding: 18px 20px;
     border-radius: 12px;
   }
 
   ${forMobile} {
-    padding: 20px;
+    padding: 12px 20px;
     border-radius: 8px;
   }
 `;
@@ -73,7 +76,7 @@ const Textarea = styled(Input)`
 `;
 
 const ErrorMessage = styled.div`
-  margin-top: 4px;
+  height: 24px;
   font-size: 12px;
   line-height: 24px;
   letter-spacing: 0.2px;
@@ -115,12 +118,15 @@ const Field = ({
           {...props}
         />
       )}
-      {touched && error ? (
-        <ErrorMessage>
-          <i className="fas fa-exclamation-triangle"></i>
-          {error}
-        </ErrorMessage>
-      ) : null}
+      <ErrorMessage>
+        {touched && error ? (
+          <>
+            <i className="fas fa-exclamation-triangle"></i>
+            {error}
+          </>
+        ) : null}
+      </ErrorMessage>
+
     </Wrapper>
   );
 };

@@ -18,7 +18,7 @@ const Wrapper = styled(DefaultForm)`
   }
 
   ${forMobile} {
-    padding: 32px 20px 60px;
+    padding: 32px 20px 40px;
   }
 `;
 
@@ -26,10 +26,6 @@ const InnerWrapper = styled.div`
   ${greaterThanMobile} {
     display: flex;
     margin-bottom: 80px;
-  }
-  
-  ${forMobile} {
-    margin-bottom: 60px;
   }
 `;
 
@@ -40,13 +36,19 @@ const LeftWrapper = styled.div`
   }
 
   ${forMobile} {
-    margin-bottom: 48px;
+    margin-bottom: 24px;
   }
 `;
 
 const RightWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${greaterThanMobile} {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ${forMobile} {
+    display: none;
+  }
 `;
 
 const TopWrapper = styled.div`
@@ -145,16 +147,10 @@ const CustomMap = styled(Map)`
 `;
 
 const CustomButton = styled(Button)`
-  font-weight: 400;
-
-  ${greaterThanMobile} {
-    padding: 21px 156px;  
-    margin: 0 auto;
-  }
-
-  ${forMobile} {
+  margin: 0 auto;
+  
+  @media (max-width: 414px) {
     width: 100%;
-    padding: 17px 0;
   }
 `
 
@@ -230,7 +226,7 @@ const Form = () => {
             </RightWrapper>
           </InnerWrapper>
           <CustomButton
-            border="1px solid #2ECA6A"
+            borderColor="#2ECA6A"
             color="#2ECA6A"
             hoverColor="#27B95F"
             activeColor="#1CA04F"
