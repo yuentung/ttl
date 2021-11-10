@@ -17,14 +17,14 @@ const Wrapper = styled.div`
 
 const LogoLinkWrapper = styled.div`
   ${greaterThanDesktop} {
-    padding: 32px 80px;
+    padding: 24px 80px;
     background-color: rgba(256, 256, 256, ${({ isTop }) => isTop ? '0' : '0.95'});
   }
 
   ${forDesktop} {
     display: inline-block;
     vertical-align: top;
-    padding: 32px ${({ isOpen }) => isOpen ? '40px' : '32px'};
+    padding: ${({ isOpen }) => isOpen ? '32px 40px' : '24px 32px'};
     background-color: rgba(256, 256, 256, ${({ isTop, isOpen }) => (!isTop || isOpen) ? '0.95' : '0'});
   }
 `;
@@ -53,7 +53,7 @@ const InnerWrapper = styled.div`
 
   ${forDesktop} {
     position: absolute;
-    top: ${({ isOpen, fullHeight }) => isOpen ? '0' : `calc(92px - ${fullHeight}px)`};
+    top: ${({ isOpen, fullHeight }) => isOpen ? '0' : `calc(80px - ${fullHeight}px)`};
     right: 0;
     left: 0;
     flex-direction: column-reverse;
@@ -96,7 +96,7 @@ const MenuButtonWrapper = styled.div`
   ${forDesktop} {
     position: absolute;
     z-index: 3;
-    top: 32px;
+    top: 24px;
     right: 32px;
   }
 `;
@@ -167,7 +167,7 @@ const Navbar = () => {
         <Header>
           <LogoLinkWrapper isTop={isHomePage && isTop} isOpen={isOpen}>
             <LogoLink
-              width={isDesktop ? 216 : (isOpen ? 128 : 160)}
+              width={isDesktop ? 150 : (isOpen ? 128 : 160)}
               color={(!isHomePage || !isTop || isOpen) ? 'dark' : 'light'}
             />
           </LogoLinkWrapper>

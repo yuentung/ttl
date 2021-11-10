@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 const Background = styled.div`
   ${greaterThanDesktop} {
     position: absolute;
-    top: 110px;
+    top: 80px;
     right: 0;
     left: 0;
     height: ${({ show }) => show ? '256px' : '0'};
@@ -73,7 +73,7 @@ const NavLink = styled(Link)`
 
   ${greaterThanDesktop} {
     position: relative;
-    padding: 39px 20px;
+    padding: 24px 20px;
     font-size: 16px;
     line-height: 32px;
     letter-spacing: 1.2px;
@@ -81,7 +81,7 @@ const NavLink = styled(Link)`
     &:after {
       content: '';
       position: absolute;
-      bottom: 28px;
+      bottom: 16px;
       left: 20px;
       width: ${({ selected }) => selected ? 'calc(100% - 40px)' : '0px'};
       height: 1px;
