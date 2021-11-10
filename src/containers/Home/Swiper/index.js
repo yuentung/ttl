@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import SwitchButton from './SwitchButton';
 import Scroll from './Scroll';
@@ -107,6 +108,16 @@ const SubTitle = styled.p`
     }
 `;
 
+const CustomButton = styled(Button)`
+  ${greaterThanMobile} {
+    padding: 18px 32px;
+  }
+
+  ${forMobile} {
+    padding: 12px 24px;
+  }
+`;
+
 const ArrowIcon = styled.img`
     margin-left: 8px;
 `;
@@ -115,6 +126,7 @@ const Swiper = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const { image, title, subTitle } = data.home.swiper[selectedIndex];
   const { height } = useWindowDimensions();
+  const history = useHistory();
 
   useEffect(() => {
     const timeoutID = setTimeout(() => {
@@ -144,15 +156,16 @@ const Swiper = () => {
       <PositionedScroll />
       <Title dangerouslySetInnerHTML={{ __html: title }} />
       <SubTitle>{subTitle}</SubTitle>
-      <Button
+      <CustomButton
         color="#FFFFFF"
         backgroundColor="#2ECA6A"
         hoverColor="#27B95F"
         activeColor="#1CA04F"
+        handleButtonClick={() => history.push(`${process.env.PUBLIC_URL}/contact`)}
       >
         聯絡我們
         <ArrowIcon src={ArrowImage} alt="arrow icon" />
-      </Button>
+      </CustomButton>
     </Wrapper>
   );
 };
