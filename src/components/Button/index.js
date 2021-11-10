@@ -1,27 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-import { forMobile, greaterThanMobile } from '../../theme/breakpoints';
 
 const Wrapper = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   ${({ isFluid }) => isFluid && 'width: 100%'};
-  ${({ border }) => border && `border: ${border};`}
+  padding: 18px 72px;
+  ${({ borderColor }) => borderColor && `border: 1px solid ${borderColor};`}
   font-size: 16px;
-  line-height: 19px;
-  letter-spacing: 0.12em;
-  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.8px;
+  font-weight: 500;
   ${({ color }) => color && `color: ${color}`};
   ${({ backgroundColor }) => backgroundColor && `background-color: ${backgroundColor}`};
   cursor: pointer;
 
   &:hover {
-    ${({ border, hoverColor }) => border ? `color: ${hoverColor}; border-color: ${hoverColor}; transform: scale(0.9);` : `background-color: ${hoverColor}`};
+    ${({ borderColor, hoverColor }) => borderColor ? `color: ${hoverColor}; border-color: ${hoverColor}; transform: scale(0.9);` : `background-color: ${hoverColor}`};
   }
 
   &:active {
-    ${({ border, activeColor }) => border ? `color: ${activeColor} border-color: ${activeColor};` : `background-color: ${activeColor}`};
+    ${({ borderColor, activeColor }) => borderColor ? `color: ${activeColor} border-color: ${activeColor};` : `background-color: ${activeColor}`};
   }
 
   > span {
@@ -29,21 +29,13 @@ const Wrapper = styled.button`
     font-size: 19px;
     font-weight: 500;
   }
-
-  ${greaterThanMobile} {
-    padding: 20px 32px;
-  }
-
-  ${forMobile} {
-    padding: 12px 24px;
-  }
 `;
 
-const Button = ({ className, border, color, backgroundColor, hoverColor, activeColor, isFluid, handleButtonClick, children }) => {
+const Button = ({ className, borderColor, color, backgroundColor, hoverColor, activeColor, isFluid, handleButtonClick, children }) => {
   return (
     <Wrapper
       className={className}
-      border={border}
+      borderColor={borderColor}
       color={color}
       backgroundColor={backgroundColor}
       hoverColor={hoverColor}
