@@ -165,25 +165,20 @@ const InfoText = styled.p`
 `;
 
 const NavList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 132px);
+
+  ${greaterThanMobile} {
+    grid-gap: 48px 72px;
+  }
 
   ${forMobile} {
+    grid-gap: 28px 40px;
     margin-bottom: 40px;
   }
 `;
 
 const NavItem = styled.li`
-  width: 50%;
-
-  &:nth-child(3), &:nth-child(4) {
-    margin-top: 48px;
-
-    ${forDesktop} {
-      margin-top: 28px;
-    }
-  }
-
   > a {
     padding-left: 10px;
     border-left: 4px solid #2ECA6A;
@@ -317,10 +312,11 @@ const Footer = () => {
         <RightWrapper>
           <MapWrapper />
           <Button
-            border="1px solid #FFFFFF"
+            borderColor="#FFFFFF"
             color="#FFFFFF"
             hoverColor="#FFFFFF"
             activeColor="#FFFFFF"
+            isFluid
           >
             聯絡我們
             <ArrowIcon src={ArrowImage} alt="arrow icon" />
