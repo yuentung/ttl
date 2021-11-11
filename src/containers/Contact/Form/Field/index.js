@@ -40,7 +40,7 @@ const Tag = styled.span`
 const Input = styled.input`
   width: 100%;
   border: none;
-  ${({ isError }) => isError && 'outline: 1px solid #E95B2E;'}
+  outline: none;
   margin-bottom: 8px;
   font-size: 16px;
   line-height: 24px;
@@ -48,10 +48,11 @@ const Input = styled.input`
   font-weight: 400;
   color: #252525;
   background-color: #F2F3F5;
+  ${({ isError }) => isError && 'box-shadow: 0 0 0 1px #E95B2E;'}
   transition: none;
 
   &:focus {
-    outline: 1px solid #27B95F;
+    box-shadow: 0 0 0 1px #27B95F;
   }
 
   &::placeholder {
