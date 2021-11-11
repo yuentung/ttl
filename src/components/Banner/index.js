@@ -51,7 +51,7 @@ const SubTitle = styled.p`
   }
 
   ${forMobile} {
-    font-weight: 24px;
+    font-size: 24px;
     line-height: 36px;
   }
 `;
