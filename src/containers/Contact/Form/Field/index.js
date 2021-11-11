@@ -39,7 +39,7 @@ const Tag = styled.span`
 
 const Input = styled.input`
   width: 100%;
-  border: 1px solid ${({ isError }) => isError ? '#E95B2E' : '#F2F3F5'};
+  border: none;
   outline: none;
   margin-bottom: 8px;
   font-size: 16px;
@@ -48,9 +48,11 @@ const Input = styled.input`
   font-weight: 400;
   color: #252525;
   background-color: #F2F3F5;
+  box-shadow: 0 0 0 1px ${({ isError }) => isError ? '#E95B2E' : '#F2F3F5'};
+  -webkit-appearance: none;
 
   &:focus {
-    border: 1px solid #27B95F;
+    box-shadow: 0 0 0 1px #27B95F;
   }
 
   &::placeholder {
