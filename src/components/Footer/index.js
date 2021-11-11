@@ -153,7 +153,6 @@ const InfoText = styled.p`
   letter-spacing: 0.15em;
   font-weight: 400;
   color: #FFFFFF;
-  white-space: nowrap;
 
   ${greaterThanMobile} {
     line-height: 19px;
@@ -161,6 +160,10 @@ const InfoText = styled.p`
 
   ${forMobile} {
     line-height: 24px;
+
+    @media (max-width: 360px) {
+      font-size: 13px;
+    }
   }
 `;
 
@@ -175,6 +178,11 @@ const NavList = styled.ul`
   ${forMobile} {
     grid-gap: 28px 40px;
     margin-bottom: 40px;
+
+    @media (max-width: 360px) {
+      grid-template-columns: repeat(2, 120px);
+      grid-gap: 16px 16px;
+    }
   }
 `;
 
@@ -187,6 +195,11 @@ const NavItem = styled.li`
     letter-spacing: 1.2px;
     font-weight: 500;
     color: #FFFFFF;
+
+    @media (max-width: 360px) {
+      font-size: 14px;
+      line-height: 28px;
+    }
   }
 `;
 
@@ -199,6 +212,10 @@ const SubNavItem = styled.li`
     line-height: 17px;
     letter-spacing: 0.15em;
     color: #FFFFFF;
+
+    @media (max-width: 360px) {
+      font-size: 13px;
+    }
   }
 `;
 
@@ -216,21 +233,27 @@ const Copyright = styled.p`
     line-height: 16px;
     letter-spacing: 0.02em;
     white-space: nowrap;
+
+    @media (max-width: 360px) {
+      font-size: 9px;
+    } 
   }
 `;
 
 const MapWrapper = styled(Map)`
   display: block;
-  width: 300px;
-  height: 287px;
-  object-fit: cover;
+  margin-bottom: 36px;
 
-  ${forDesktop} {
-    width: 100%;
-    min-width: 300px;
-    height: auto;
-    max-height: 400px;
-    margin-bottom: 36px;
+  ${greaterThanMobile} {
+    width: 300px;
+    height: 287px;
+
+    ${forDesktop} {
+      width: 100%;
+      min-width: 300px;
+      height: auto;
+      max-height: 400px;
+    }
   }
 
   ${forMobile} {
@@ -248,6 +271,12 @@ const MobileBottomWrapper = styled.div`
 
 const ArrowIcon = styled.img`
     margin-left: 8px;
+`;
+
+const CustomButton = styled(Button)`
+  ${forMobile} {
+    padding: 18px 0;
+  }
 `;
 
 const Footer = () => {
@@ -311,7 +340,7 @@ const Footer = () => {
         </div>
         <RightWrapper>
           <MapWrapper />
-          <Button
+          <CustomButton
             borderColor="#FFFFFF"
             color="#FFFFFF"
             hoverColor="#FFFFFF"
@@ -320,7 +349,7 @@ const Footer = () => {
           >
             聯絡我們
             <ArrowIcon src={ArrowImage} alt="arrow icon" />
-          </Button>
+          </CustomButton>
         </RightWrapper>
         {isMobile && (
           <MobileBottomWrapper>

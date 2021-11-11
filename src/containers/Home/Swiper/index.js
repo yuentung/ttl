@@ -15,10 +15,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   height: ${({ fullHeight }) => `${fullHeight}px`};
-  min-height: 700px;
   overflow: hidden;
 
   ${greaterThanMobile} {
+    min-height: 700px;
     padding: 100px 80px;
   }
 
@@ -54,6 +54,10 @@ const PositionedSwitchButton = styled(SwitchButton)`
   
   ${forMobile} {
     right: 32px;
+
+    @media (max-width: 360px) {
+      top: 25%;
+    }
   }
 `;
 
@@ -87,6 +91,11 @@ const Title = styled.h1`
       margin-bottom: 20px;
       font-size: 32px;
       line-height: 36px;
+
+      @media (max-width: 360px) {
+        font-size: 24px;
+        line-height: 28px;
+      }
     }
 `;
 
@@ -105,6 +114,10 @@ const SubTitle = styled.p`
       margin-bottom: 40px;
       font-size: 13px;
       line-height: 16px;
+
+      @media (max-width: 360px) {
+        font-size: 12px;
+      }
     }
 `;
 
