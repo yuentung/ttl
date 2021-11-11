@@ -117,7 +117,19 @@ const CustomButton = styled(Button)`
   @media (max-width: 414px) {
     width: 100%;
   }
-`
+`;
+
+const formatPhoneNumber = number => {
+  let numberWithoutHyphen = number.replaceAll('-', '');
+
+  if (numberWithoutHyphen.length > 7) {
+    return `${numberWithoutHyphen.slice(0, 4)}-${numberWithoutHyphen.slice(4, 7)}-${numberWithoutHyphen.slice(7, 10)}`;
+  } else if (numberWithoutHyphen.length > 4) {
+    return `${numberWithoutHyphen.slice(0, 4)}-${numberWithoutHyphen.slice(4)}`;
+  } else {
+    return numberWithoutHyphen;
+  }
+};
 
 const Form = () => {
   const [showMessage, setShowMessage] = useState(false);
@@ -132,7 +144,7 @@ const Form = () => {
       }}
       validationSchema={Yup.object({
         name: Yup.string().required(),
-        phone: Yup.string().matches(/^(09)[0-9]{8}$/).required(),
+        phone: Yup.string().matches(/^(09)[0-9]{2}-[0-9]{3}-[0-9]{3}$/).required(),
         email: Yup.string().email().required(),
         message: Yup.string().required(),
       })}
@@ -147,7 +159,7 @@ const Form = () => {
           });
       }}
     >
-      {({ isSubmitting }) => (
+      {({ setValues, isSubmitting }) => (
         <Wrapper>
           <InnerWrapper>
             <LeftWrapper>
@@ -162,7 +174,13 @@ const Form = () => {
                 name="phone"
                 label="手機號碼"
                 type="tel"
-                placeholder="0978639128"
+                placeholder="0978-639-128"
+                onChange={event => {
+                  setValues(values => ({
+                    ...values,
+                    phone: formatPhoneNumber(event.target.value),
+                  }));
+                }}
                 isRequired
               />
               <Field
