@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import useMedia from 'use-media';
 import styled from 'styled-components';
 import Map from '../Map';
@@ -283,6 +284,7 @@ const Footer = () => {
   const { image, info, navList } = data.home.footer;
   const { address, serviceHours, mail, phone } = info;
   const isMobile = useMedia({ maxWidth: '768px' });
+  const history = useHistory();
 
   return (
     <Wrapper>
@@ -345,6 +347,7 @@ const Footer = () => {
             color="#FFFFFF"
             hoverColor="#FFFFFF"
             activeColor="#FFFFFF"
+            handleButtonClick={() => history.push(`${process.env.PUBLIC_URL}/contact`)}
             isFluid
           >
             聯絡我們
