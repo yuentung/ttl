@@ -111,7 +111,8 @@ const ProductWrapper = styled.div`
   }
 
   ${forMobile} {
-    margin-bottom: 80px;
+    display: flex;
+    margin: 0 -32px 80px;
     overflow: auto;
 
     &::-webkit-scrollbar {
@@ -143,6 +144,9 @@ const ProductList = styled.ul`
   }
 
   ${forMobile} {
+    flex-shrink: 0;
+    padding: 0 32px;
+
     > li {
       flex-shrink: 0;
       width: 260px;
