@@ -36,15 +36,11 @@ const Description = styled.p`
 `;
 
 const Contact = () => {
-  const { banner, title, subTitle, description } = data.contact;
+  const { banner, content: { description } } = data.contact;
 
   return (
     <>
-      <Banner
-        image={banner}
-        title={title}
-        subTitle={subTitle}
-      />
+      <Banner {...banner} />
       <InnerWrapper>
         <Description>{description}</Description>
         <Form />

@@ -125,6 +125,7 @@ const Navbar = () => {
   const [height, setHeight] = useState(window.innerHeight);
   const isDesktop = useMedia({ minWidth: '1201px' });
   const { pathname } = useLocation();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -146,13 +147,11 @@ const Navbar = () => {
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'unset';
-  }, [isOpen])
+  }, [isOpen]);
 
   useEffect(() => {
     setIsOpen(false);
-  }, [isDesktop])
-
-  const isHomePage = pathname === "/";
+  }, [isDesktop]);
 
   return (
     <Wrapper isOpen={isOpen}>
