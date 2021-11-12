@@ -129,6 +129,7 @@ const Title = styled.h3`
 
   ${forMobile} {
     margin-bottom: 24px;
+    text-align: center;
     font-size: 24px;
     line-height: 28px;
   }
