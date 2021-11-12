@@ -5,6 +5,7 @@ import Card from './Card';
 import { forMobile, greaterThanMobile } from '../../theme/breakpoints';
 import data from '../../constants/data';
 import QuoteImage from '../../constants/images/quote.png';
+import ArrowImage from '../../constants/images/arrow_green.svg';
 
 const InnerWrapper = styled.div`
   ${greaterThanMobile} {
@@ -79,7 +80,7 @@ const FeatureWrapper = styled.div`
 
   ${forMobile} {
     display: flex;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     overflow: auto;
 
     &::-webkit-scrollbar {
@@ -168,6 +169,17 @@ const FeatuerDescription = styled.p`
   }
 `;
 
+const ArrowIcon = styled.img`
+  ${greaterThanMobile} {
+    display: none;
+  }
+
+  ${forMobile} {
+    display: block;
+    margin: 0 20px 80px auto;
+  }
+`;
+
 const Contact = () => {
   const { banner, content: { title, description, featureList, introList } } = data.about;
 
@@ -191,6 +203,7 @@ const Contact = () => {
             ))}
           </FeatureList>
         </FeatureWrapper>
+        <ArrowIcon src={ArrowImage} alt="arrow icon" />
         <Card align="left" {...introList[0]} />
         <Card align="right" {...introList[1]} />
       </InnerWrapper>
