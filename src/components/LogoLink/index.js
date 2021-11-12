@@ -17,7 +17,7 @@ export const Wrapper = styled(Link)`
 const LogoLink = ({ width, color }) => {
   return (
     <Wrapper
-      to={process.env.PUBLIC_URL}
+      to="/"
       width={width}
       color={color}
     />

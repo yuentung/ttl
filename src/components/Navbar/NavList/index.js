@@ -243,7 +243,7 @@ const NavList = ({ setIsOpen }) => {
         {navList.map(({ text, link, subNavList }, index) => (
           <NavItem key={text}>
             <NavLink
-              to={process.env.PUBLIC_URL + link}
+              to={link}
               onClick={(e) => {
                 if (subNavList) {
                   e.preventDefault();

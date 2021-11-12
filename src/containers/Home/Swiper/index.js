@@ -174,7 +174,7 @@ const Swiper = () => {
         backgroundColor="#2ECA6A"
         hoverColor="#27B95F"
         activeColor="#1CA04F"
-        handleButtonClick={() => history.push(`${process.env.PUBLIC_URL}/contact`)}
+        handleButtonClick={() => history.push("/contact")}
       >
         聯絡我們
         <ArrowIcon src={ArrowImage} alt="arrow icon" />

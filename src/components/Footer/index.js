@@ -347,7 +347,7 @@ const Footer = () => {
             color="#FFFFFF"
             hoverColor="#FFFFFF"
             activeColor="#FFFFFF"
-            handleButtonClick={() => history.push(`${process.env.PUBLIC_URL}/contact`)}
+            handleButtonClick={() => history.push("/contact")}
             isFluid
           >
             聯絡我們
