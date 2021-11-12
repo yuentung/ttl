@@ -152,7 +152,7 @@ const Navbar = () => {
     setIsOpen(false);
   }, [isDesktop])
 
-  const isHomePage = pathname === process.env.PUBLIC_URL || pathname === `${process.env.PUBLIC_URL}/`;
+  const isHomePage = pathname === "/";
 
   return (
     <Wrapper isOpen={isOpen}>
