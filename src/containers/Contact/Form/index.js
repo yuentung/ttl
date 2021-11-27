@@ -222,6 +222,7 @@ const Form = () => {
             hoverColor="#27B95F"
             activeColor="#1CA04F"
             type="submit"
+            loading={isSubmitting}
             disabled={isSubmitting}
           >
             送出內容
