@@ -316,6 +316,7 @@ const Footer = () => {
                   <InfoText>SOCIAL</InfoText>
                   <i className="fab fa-instagram"></i>
                   <i className="fab fa-facebook-square"></i>
+                  <i className="fab fa-tiktok"></i>
                 </BottomWrapper>
               )}
             </InnerLeftWrapper>
@@ -360,6 +361,7 @@ const Footer = () => {
               <InfoText>SOCIAL</InfoText>
               <i className="fab fa-instagram"></i>
               <i className="fab fa-facebook-square"></i>
+              <i className="fab fa-tiktok"></i>
             </BottomWrapper>
             <Copyright>Copyright © Tay Tzyy LongCo.Ltc. all rights reserved</Copyright>
           </MobileBottomWrapper>
