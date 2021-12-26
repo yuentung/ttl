@@ -69,6 +69,14 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    font-family: "Roboto", "Noto Sans TC", sans-serif;
+  }
+
   body {
     background-color: #F6F6F6;
     overscroll-behavior: none;
@@ -76,13 +84,5 @@ export const GlobalStyle = createGlobalStyle`
     &::-webkit-scrollbar {
       display: none;
     }
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  * {
-    font-family: "Roboto", "Noto Sans TC", sans-serif;
   }
 `;

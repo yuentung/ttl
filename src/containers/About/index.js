@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Banner from '../../components/Banner';
 import Card from './Card';
@@ -182,6 +182,10 @@ const ArrowIcon = styled.img`
 
 const Contact = () => {
   const { banner, content: { title, description, featureList, introList } } = data.about;
+
+  useEffect(() => {
+    document.body.style.overflowX = 'hidden';
+  }, [])
 
   return (
     <>
