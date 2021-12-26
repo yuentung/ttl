@@ -145,11 +145,6 @@ const Description = styled.p`
 
 const Card = ({ align, image, subTitle, title, description }) => (
   <Wrapper>
-    <ImageWrapper>
-      <Image align={align} src={image} alt={subTitle} />
-      <GreenRectangle align={align} />
-      <WhiteRectangle align={align} />
-    </ImageWrapper>
     <Content align={align}>
       <SubTitle align={align}>{subTitle}</SubTitle>
       <div>
@@ -157,6 +152,11 @@ const Card = ({ align, image, subTitle, title, description }) => (
         <Description dangerouslySetInnerHTML={{ __html: description }} />
       </div>
     </Content>
+    <ImageWrapper>
+      <Image align={align} src={image} alt={subTitle} />
+      <GreenRectangle align={align} />
+      <WhiteRectangle align={align} />
+    </ImageWrapper>
   </Wrapper>
 );
 
