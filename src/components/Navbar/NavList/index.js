@@ -144,7 +144,7 @@ const SubNavItem = styled.li`
   }
 `;
 
-const SubNavLink = styled.a`
+const SubNavLink = styled(Link)`
   display: block;
   font-weight: 500;
 
@@ -205,7 +205,7 @@ const LastNavItem = styled.li`
   }
 `;
 
-const LastNavLink = styled.a`
+const LastNavLink = styled(Link)`
   display: block;
   font-weight: 400;
 
@@ -273,7 +273,7 @@ const NavList = ({ setIsOpen }) => {
                 {subNavList.map(({ text, link, lastNavList }, index) => (
                   <SubNavItem key={text}>
                     {text && (
-                      <SubNavLink href={link}>
+                      <SubNavLink to={link}>
                         <span>{`O${index + 1}`}</span>
                         {text}
                       </SubNavLink>
@@ -282,7 +282,7 @@ const NavList = ({ setIsOpen }) => {
                       <LastNavList>
                         {lastNavList.map(({ text, link }) => (
                           <LastNavItem key={text}>
-                            <LastNavLink href={link}>
+                            <LastNavLink to={link}>
                               <span>−</span>
                               {text}
                             </LastNavLink>
@@ -307,7 +307,7 @@ const NavList = ({ setIsOpen }) => {
             {navList[selectedIndex]?.subNavList.map(({ text, link, lastNavList }, index) => (
               <SubNavItem key={text}>
                 {text && (
-                  <SubNavLink href={link}>
+                  <SubNavLink to={link}>
                     <span>{`O${index + 1}`}</span>
                     {text}
                   </SubNavLink>
@@ -316,7 +316,7 @@ const NavList = ({ setIsOpen }) => {
                   <LastNavList>
                     {lastNavList.map(({ text, link }) => (
                       <LastNavItem key={text}>
-                        <LastNavLink href={link}>
+                        <LastNavLink to={link}>
                           <span>−</span>
                           {text}
                         </LastNavLink>

@@ -22,9 +22,12 @@ const Wrapper = styled.div`
 
 const InnerWrapper = styled.div`
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
   align-items: center;
+
+  ${greaterThanMobile} {
+    width: calc(100% - 324px);
+  }
 `;
 
 const Title = styled.div`
@@ -84,12 +87,25 @@ const SubTitle = styled.div`
 const ProductWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 
   ${greaterThanMobile} {
     gap: 40px;
 
     > li {
-      max-width: 292px;
+      width: calc(33.33% - 26.66px);
+    }
+
+    @media (max-width: 1200px) {
+      > li {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 960px) {
+      > li {
+        width: 100%;
+      }
     }
   }
 
@@ -98,7 +114,13 @@ const ProductWrapper = styled.div`
     padding: 0 32px;
 
     > li {
-      width: 100%;
+      width: calc(50% - 16px);
+    }
+
+    @media (max-width: 600px) {
+      > li {
+        width: 100%;
+      }
     }
   }
 `;
@@ -107,8 +129,15 @@ const PageNavigation = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-top: 48px;
-  margin-left: auto;
+
+  ${greaterThanMobile} {
+    margin-top: 48px;
+    margin-left: auto;
+  }
+
+  ${forMobile} {
+    margin-top: 60px;
+  }
 `;
 
 const ArrowIcon = styled.i`
@@ -127,7 +156,6 @@ const PageWrapper = styled.div`
 `;
 
 const Page = styled.div`
-  font-size: 14px;
   line-height: 28px;
   letter-spacing: 0.8px;
   color: ${({ isSelected }) => isSelected ? '#2ECA6A' : '#A7A7A7'};
@@ -136,6 +164,14 @@ const Page = styled.div`
 
   &:hover {
     color: #2ECA6A;
+  }
+
+  ${greaterThanMobile} {
+    font-size: 14px;
+  }
+
+  ${forMobile} {
+    font-size: 20px;
   }
 `;
 
