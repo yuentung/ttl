@@ -37,11 +37,11 @@ const Button = styled.button`
   }
 `;
 
-const SwitchButton = ({ className, selectedIndex, leftHandleButtonClick, rightHandleButtonClick }) => {
+const SwitchButton = ({ className, selectedCategory, leftHandleButtonClick, rightHandleButtonClick }) => {
   return (
     <Wrapper className={className}>
-      <Button onClick={leftHandleButtonClick} selected={selectedIndex === 0}>TTL</Button>
-      <Button onClick={rightHandleButtonClick} selected={selectedIndex === 1}>VC</Button>
+      <Button onClick={leftHandleButtonClick} selected={selectedCategory === 'equipment'}>TTL</Button>
+      <Button onClick={rightHandleButtonClick} selected={selectedCategory === 'vc'}>VC</Button>
     </Wrapper>
   );
 };

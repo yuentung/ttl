@@ -163,7 +163,7 @@ const CustomButton = styled(Button)`
 `
 
 const Products = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState('equipment');
   const { width } = useWindowDimensions();
   const { subTitle, title, productList } = data.home.products;
 
@@ -178,15 +178,17 @@ const Products = () => {
           </LineWrapper>
           <Title>{title}</Title>
           <SwitchButton
-            leftHandleButtonClick={() => setSelectedIndex(0)}
-            rightHandleButtonClick={() => setSelectedIndex(1)}
-            selectedIndex={selectedIndex}
+            leftHandleButtonClick={() => setSelectedCategory('equipment')}
+            rightHandleButtonClick={() => setSelectedCategory('vc')}
+            selectedCategory={selectedCategory}
           />
         </TitleWrapper>
       </Header>
       <ProductWrapper>
         <ProductList>
-          {productList[selectedIndex].map((productItem, index) => {
+          {productList.filter(productItem => {
+            return productItem.mainCategory === selectedCategory
+          }).map((productItem, index) => {
             if (width > 1200 && index < 4) {
               return <Card key={productItem.title} {...productItem} />
             }

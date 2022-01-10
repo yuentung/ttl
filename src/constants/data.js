@@ -34,11 +34,11 @@ const data = {
         },
         {
           text: '機器設備銷售',
-          link: '',
+          link: '/list/equipment',
           subNavList: [
             {
               text: '複層玻璃生產線',
-              link: '',
+              link: '/list/laminated_glass_production_line',
               lastNavList: [
                 {
                   text: '接角',
@@ -80,11 +80,11 @@ const data = {
             },
             {
               text: '玻璃切割機',
-              link: '',
+              link: '/list/window_cutting_machine',
             },
             {
               text: '熱熔膠機',
-              link: '',
+              link: '/list/hot_glue_machine',
               lastNavList: [
                 {
                   text: '芬熱熔膠',
@@ -100,11 +100,11 @@ const data = {
         },
         {
           text: 'VC 威斯卡門窗',
-          link: '',
+          link: '/list/vc',
           subNavList: [
             {
               text: '門窗產品',
-              link: '',
+              link: '/list/doors_and_window',
               lastNavList: [
                 {
                   text: '推開窗',
@@ -146,7 +146,7 @@ const data = {
             },
             {
               text: '消耗性產品',
-              link: '',
+              link: '/list/consumable_products',
               lastNavList: [
                 {
                   text: '芬熱熔膠',
@@ -302,50 +302,125 @@ const data = {
       subTitle: 'PRODUCT',
       title: '產品介紹',
       productList: [
-        [
-          {
-            image: TTLProduct1,
-            title: '玻璃切割機－Pujinli',
-            description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-          },
-          {
-            image: TTLProduct2,
-            title: '中空玻璃生產線-BOZA',
-            description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-          },
-          {
-            image: TTLProduct3,
-            title: '熱熔膠槍',
-            description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-          },
-          {
-            image: TTLProduct4,
-            title: '玻璃切割機－Pujinli',
-            description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-          },
-        ],
-        [
-          {
-            image: VCProduct1,
-            title: '玻璃切割機－Pujinli',
-            description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-          },
-          {
-            image: VCProduct2,
-            title: '中空玻璃生產線-BOZA',
-            description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-          },
-          {
-            image: VCProduct3,
-            title: '熱熔膠槍',
-            description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-          },
-          {
-            image: VCProduct4,
-            title: '玻璃切割機－Pujinli',
-            description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
-          },
-        ]
+        {
+          image: TTLProduct1,
+          mainCategory: 'equipment',
+          subCategory: 'window_cutting_machine',
+          title: '(equipment)window_cutting_machine',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: TTLProduct2,
+          mainCategory: 'equipment',
+          subCategory: 'laminated_glass_production_line',
+          title: '(equipment)laminated_glass_production_line',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: TTLProduct3,
+          mainCategory: 'equipment',
+          subCategory: 'hot_glue_machine',
+          title: '(equipment)hot_glue_machine',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: TTLProduct4,
+          mainCategory: 'equipment',
+          subCategory: 'window_cutting_machine',
+          title: '(equipment)window_cutting_machine2',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: TTLProduct1,
+          mainCategory: 'equipment',
+          subCategory: 'window_cutting_machine',
+          title: '(equipment)window_cutting_machine3',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: TTLProduct2,
+          mainCategory: 'equipment',
+          subCategory: 'laminated_glass_production_line',
+          title: '(equipment)laminated_glass_production_line2',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: TTLProduct3,
+          mainCategory: 'equipment',
+          subCategory: 'hot_glue_machine',
+          title: '(equipment)hot_glue_machine2',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: TTLProduct4,
+          mainCategory: 'equipment',
+          subCategory: 'window_cutting_machine',
+          title: '(equipment)window_cutting_machine4',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: TTLProduct4,
+          mainCategory: 'equipment',
+          subCategory: 'window_cutting_machine',
+          title: '(equipment)window_cutting_machine5',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: VCProduct1,
+          mainCategory: 'vc',
+          subCategory: 'doors_and_window',
+          title: '(vc)doors_and_window',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: VCProduct2,
+          mainCategory: 'vc',
+          subCategory: 'doors_and_window',
+          title: '(vc)doors_and_window2',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: VCProduct3,
+          mainCategory: 'vc',
+          subCategory: 'consumable_products',
+          title: '(vc)consumable_products',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: VCProduct4,
+          mainCategory: 'vc',
+          subCategory: 'consumable_products',
+          title: '(vc)consumable_products2',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: VCProduct1,
+          mainCategory: 'vc',
+          subCategory: 'doors_and_window',
+          title: '(vc)doors_and_window3',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: VCProduct2,
+          mainCategory: 'vc',
+          subCategory: 'doors_and_window',
+          title: '(vc)doors_and_window4',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: VCProduct3,
+          mainCategory: 'vc',
+          subCategory: 'consumable_products',
+          title: '(vc)consumable_products3',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
+        {
+          image: VCProduct4,
+          mainCategory: 'vc',
+          subCategory: 'consumable_products',
+          title: '(vc)consumable_products4',
+          description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+        },
       ],
     },
     footer: {
@@ -384,33 +459,33 @@ const data = {
         },
         {
           text: '機械設備銷售',
-          link: '',
+          link: '/list/equipment',
           subNavList: [
             {
               text: '複層玻璃生產線',
-              link: '',
+              link: '/list/laminated_glass_production_line',
             },
             {
               text: '玻璃切割機',
-              link: '',
+              link: '/list/window_cutting_machine',
             },
             {
               text: '熱熔膠機',
-              link: '',
+              link: '/list/hot_glue_machine',
             },
           ],
         },
         {
           text: 'VC 威斯卡門窗',
-          link: '',
+          link: '/list/vc',
           subNavList: [
             {
               text: '門窗產品',
-              link: '',
+              link: '/list/doors_and_window',
             },
             {
               text: '消耗性產品',
-              link: '',
+              link: '/list/consumable_products',
             },
           ],
         },

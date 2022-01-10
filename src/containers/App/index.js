@@ -7,20 +7,24 @@ import Footer from '../../components/Footer';
 import Home from '../Home';
 import About from '../About';
 import Contact from '../Contact';
+import List from '../List';
 
 const App = () => (
   <>
     <ResetStyle />
     <GlobalStyle />
-    <Router basename="/ttl">
+    <Router basename="/ttl/">
       <ScrollToTop />
       <Navbar />
       <Switch>
-        <Route path="/about">
+        <Route path="/about/">
           <About />
         </Route>
-        <Route path="/contact">
+        <Route path="/contact/">
           <Contact />
+        </Route>
+        <Route path="/list/:category/">
+          <List />
         </Route>
         <Route path="/">
           <Home />
