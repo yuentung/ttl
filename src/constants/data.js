@@ -451,7 +451,7 @@ const data = {
       navList: [
         {
           text: '公司資訊',
-          link: '',
+          link: '/about',
         },
         {
           text: '工程案例',

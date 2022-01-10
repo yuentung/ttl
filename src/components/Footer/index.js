@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useMedia from 'use-media';
 import styled from 'styled-components';
 import Map from '../Map';
@@ -324,12 +324,12 @@ const Footer = () => {
               <NavList>
                 {navList.map(({ text, link, subNavList }) => (
                   <NavItem key={text}>
-                    <a href={link}>{text}</a>
+                    <Link to={link}>{text}</Link>
                     {subNavList ? (
                       <ul>
                         {subNavList.map(({ text, link }) => (
                           <SubNavItem key={text}>
-                            <a href={link}>{text}</a>
+                            <Link to={link}>{text}</Link>
                           </SubNavItem>
                         ))}
                       </ul>
