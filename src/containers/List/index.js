@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Card from '../../components/Card';
 import Category from './Category';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { greaterThanMobile, forMobile } from '../../theme/breakpoints';
 import data from '../../constants/data';
 
@@ -207,6 +208,8 @@ const categoryList = {
 };
 
 const List = () => {
+  const { width } = useWindowDimensions();
+  const isMobile = width <= 768;
   const [page, setPage] = useState(1);
   const [products, setProducts] = useState([]);
   const { category } = useParams();
@@ -225,10 +228,12 @@ const List = () => {
 
   return (
     <Wrapper>
-      <Category
-        categoryList={categoryList}
-        selectedCategory={category}
-      />
+      {!isMobile && (
+        <Category
+          categoryList={categoryList}
+          selectedCategory={category}
+        />
+      )}
       <InnerWrapper>
         <SubTitle>PRODUCT LIST</SubTitle>
         <SquareWrapper>
@@ -242,6 +247,12 @@ const List = () => {
             || categoryList.vc.subCategoryList[category]?.text
           }
         </Title>
+        {isMobile && (
+          <Category
+            categoryList={categoryList}
+            selectedCategory={category}
+          />
+        )}
         <ProductWrapper>
           {products.map((productItem, index) => {
             if (index < page * 9 && index >= (page - 1) * 9) {
@@ -251,12 +262,12 @@ const List = () => {
           })}
         </ProductWrapper>
         <PageNavigation>
-            <ArrowIcon
-              className="far fa-chevron-left"
-              onClick={() => {
-                if (page - 1 >= 1) setPage(prevPage => prevPage - 1);
-              }}
-            />
+          <ArrowIcon
+            className="far fa-chevron-left"
+            onClick={() => {
+              if (page - 1 >= 1) setPage(prevPage => prevPage - 1);
+            }}
+          />
           <PageWrapper>
             {[...Array(totalPage).keys()].map(pageIndex => (
               <Page
@@ -271,11 +282,11 @@ const List = () => {
             ))}
           </PageWrapper>
           <ArrowIcon
-              className="far fa-chevron-right"
-              onClick={() => {
-                if (page + 1 <= totalPage) setPage(prevPage => prevPage + 1);
-              }}
-            />
+            className="far fa-chevron-right"
+            onClick={() => {
+              if (page + 1 <= totalPage) setPage(prevPage => prevPage + 1);
+            }}
+          />
         </PageNavigation>
       </InnerWrapper>
     </Wrapper>
