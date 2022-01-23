@@ -200,7 +200,8 @@ const SubTitle = styled.div`
 
 const AgentImage = styled.img`
   display: block;
-  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 `;
 
 const ProductTitleWrapper = styled.div`
@@ -391,7 +392,7 @@ const View = () => {
           <ProductSquare />
           <ProductSquare />
         </ProductSquareWrapper>
-        <ProductTitle>類似商品</ProductTitle>
+        <ProductTitle>推薦商品</ProductTitle>
       </ProductTitleWrapper>
       <ProductWrapper>
         <ProductList>
