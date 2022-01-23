@@ -181,19 +181,20 @@ const Square = styled.div`
 `;
 
 const SubTitle = styled.div`
-  font-weight: 500;
-  color: #2A2A2A;
+  color: #252525;
 
   ${greaterThanMobile} {
     font-size: 24px;
     line-height: 35px;
     letter-spacing: 12%;
+    font-weight: 500;
   }
 
   ${forMobile} {
     font-size: 20px;
     line-height: 30px;
     letter-spacing: 2.5px;
+    font-weight: 400;
   }
 `;
 
@@ -253,19 +254,20 @@ const ProductSquare = styled.div`
 `;
 
 const ProductTitle = styled.div`
-  font-weight: 500;
-  color: #2A2A2A;
+  color: #252525;
 
   ${greaterThanMobile} {
     font-size: 32px;
     line-height: 40px;
     letter-spacing: 4px;
+    font-weight: 500;
   }
 
   ${forMobile} {
     font-size: 24px;
     line-height: 28px;
     letter-spacing: 2.5px;
+    font-weight: 400;
   }
 `;
 
