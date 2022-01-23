@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import SwitchButton from './SwitchButton';
 import Card from '../../../components/Card';
@@ -163,9 +164,11 @@ const CustomButton = styled(Button)`
 `
 
 const Products = () => {
+  const history = useHistory();
   const [selectedCategory, setSelectedCategory] = useState('equipment');
   const { width } = useWindowDimensions();
-  const { subTitle, title, productList } = data.home.products;
+  const { home, productList } = data;
+  const { subTitle, title } = home.products;
 
   return (
     <Wrapper>
@@ -197,10 +200,7 @@ const Products = () => {
               return <Card key={productItem.title} {...productItem} />
             }
 
-            if (width > 768 && index < 2) {
-              return <Card key={productItem.title} {...productItem} />
-            }
-            if (width <= 768) {
+            if (width <= 820) {
               return <Card key={productItem.title} {...productItem} />
             }
             return null;
@@ -212,6 +212,7 @@ const Products = () => {
         color="#2ECA6A"
         hoverColor="#27B95F"
         activeColor="#1CA04F"
+        handleButtonClick={() => history.push(`/list/${selectedCategory}`)}
       >
         VIEW MORE
       </CustomButton>

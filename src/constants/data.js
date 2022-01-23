@@ -21,6 +21,7 @@ import Feature3 from './images/feature3.png';
 import AboutIntro1 from './images/about_intro1.png';
 import AboutIntro2 from './images/about_intro2.png';
 import ContactBanner from './images/banner_contact.png';
+import Agent from './images/agent.png';
 
 const data = {
   home: {
@@ -42,39 +43,39 @@ const data = {
               lastNavList: [
                 {
                   text: '接角',
-                  link: '',
+                  link: '/view/1',
                 },
                 {
                   text: '分子篩',
-                  link: '',
+                  link: '/view/2',
                 },
                 {
                   text: '超級格條',
-                  link: '',
+                  link: '/view/3',
                 },
                 {
                   text: '塑膠角料',
-                  link: '',
+                  link: '/view/4',
                 },
                 {
                   text: '中空玻璃專用鋁條',
-                  link: '',
+                  link: '/view/5',
                 },
                 {
                   text: '除膜機專用除膜輪',
-                  link: '',
+                  link: '/view/6',
                 },
                 {
                   text: '熱熔丁基膠',
-                  link: '',
+                  link: '/view/7',
                 },
                 {
                   text: '雙組份硅酮密封膠',
-                  link: '',
+                  link: '/view/8',
                 },
                 {
                   text: '雙組份硅酮結構膠',
-                  link: '',
+                  link: '/view/9',
                 },
               ],
             },
@@ -88,11 +89,11 @@ const data = {
               lastNavList: [
                 {
                   text: '芬熱熔膠',
-                  link: '',
+                  link: '/view/10',
                 },
                 {
                   text: '南寶熱熔膠',
-                  link: '',
+                  link: '/view/11',
                 },
               ],
             },
@@ -108,39 +109,39 @@ const data = {
               lastNavList: [
                 {
                   text: '推開窗',
-                  link: '',
+                  link: '/view/12',
                 },
                 {
                   text: '橫拉窗',
-                  link: '',
+                  link: '/view/13',
                 },
                 {
                   text: '氣密門',
-                  link: '',
+                  link: '/view/14',
                 },
                 {
                   text: '塑膠接角',
-                  link: '',
+                  link: '/view/15',
                 },
                 {
                   text: '中空玻璃專用鋁條',
-                  link: '',
+                  link: '/view/16',
                 },
                 {
                   text: '除膜機專用除膜輪',
-                  link: '',
+                  link: '/view/17',
                 },
                 {
                   text: '熱熔丁基膠',
-                  link: '',
+                  link: '/view/1',
                 },
                 {
                   text: '雙組份硅酮密封膠',
-                  link: '',
+                  link: '/view/2',
                 },
                 {
                   text: '雙組份硅酮結構膠',
-                  link: '',
+                  link: '/view/3',
                 },
               ],
             },
@@ -150,11 +151,11 @@ const data = {
               lastNavList: [
                 {
                   text: '芬熱熔膠',
-                  link: '',
+                  link: '/view/4',
                 },
                 {
                   text: '南寶熱熔膠',
-                  link: '',
+                  link: '/view/5',
                 },
               ],
             },
@@ -542,6 +543,295 @@ const data = {
     },
     description: '我們會在一週內由專人提供您專業的回覆，或是您可以從下方的管道聯繫我們。',
   },
+  categoryList: {
+    all: {
+      text: '全部產品',
+    },
+    equipment: {
+      text: '機器設備銷售',
+      subCategoryList: {
+        laminated_glass_production_line: {
+          text: '複層玻璃生產線',
+        },
+        window_cutting_machine: {
+          text: '玻璃切割機',
+        },
+        hot_glue_machine: {
+          text: '熱熔膠機',
+        },
+      },
+    },
+    vc: {
+      text: 'VC 威斯卡門窗',
+      subCategoryList: {
+        doors_and_window: {
+          text: '門窗產品',
+        },
+        consumable_products: {
+          text: '消耗性產品',
+        },
+      },
+    },
+  },
+  productList: [
+    {
+      id: 1,
+      image: TTLProduct1,
+      mainCategory: 'equipment',
+      subCategory: 'window_cutting_machine',
+      title: '(equipment)window_cutting_machine',
+      description: 'WORX 品牌主要以推出園藝/DIY電動工具產品<br/>銅製槍嘴/陶瓷熱敏原件/高強度工程塑料機身<br/>− 無線簡單安全操作，15秒快速出膠 (膠合溫度160度)<br/>− 35分鐘使用續航力(充飽電狀態)<br/>− 具 加熱指示燈(紅/綠燈) 及 充電指示燈(紅/綠燈)<br/>− 4分鐘自動關機，節能省電，避免過度熔膠<br/>− 手柄底部金屬支撐腳，站立平穩，取放自如<br/>− 人體工學手柄設計，握持舒適，不易疲勞<br/>− 內附 充電器(100~240V 50/60Hz)x1、熱熔膠條x2(條) + 鐵製專用收納盒x1',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+      youTubeEmbedId: '35okcZrvO_Q',
+      agent: Agent,
+    },
+    {
+      id: 2,
+      image: TTLProduct2,
+      mainCategory: 'equipment',
+      subCategory: 'laminated_glass_production_line',
+      title: '(equipment)laminated_glass_production_line',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 3,
+      image: TTLProduct3,
+      mainCategory: 'equipment',
+      subCategory: 'hot_glue_machine',
+      title: '(equipment)hot_glue_machine',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 4,
+      image: TTLProduct4,
+      mainCategory: 'equipment',
+      subCategory: 'window_cutting_machine',
+      title: '(equipment)window_cutting_machine2',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 5,
+      image: TTLProduct1,
+      mainCategory: 'equipment',
+      subCategory: 'window_cutting_machine',
+      title: '(equipment)window_cutting_machine3',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 6,
+      image: TTLProduct2,
+      mainCategory: 'equipment',
+      subCategory: 'laminated_glass_production_line',
+      title: '(equipment)laminated_glass_production_line2',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 7,
+      image: TTLProduct3,
+      mainCategory: 'equipment',
+      subCategory: 'hot_glue_machine',
+      title: '(equipment)hot_glue_machine2',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 8,
+      image: TTLProduct4,
+      mainCategory: 'equipment',
+      subCategory: 'window_cutting_machine',
+      title: '(equipment)window_cutting_machine4',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 9,
+      image: TTLProduct4,
+      mainCategory: 'equipment',
+      subCategory: 'window_cutting_machine',
+      title: '(equipment)window_cutting_machine5',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 10,
+      image: VCProduct1,
+      mainCategory: 'vc',
+      subCategory: 'doors_and_window',
+      title: '(vc)doors_and_window',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 11,
+      image: VCProduct2,
+      mainCategory: 'vc',
+      subCategory: 'doors_and_window',
+      title: '(vc)doors_and_window2',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 12,
+      image: VCProduct3,
+      mainCategory: 'vc',
+      subCategory: 'consumable_products',
+      title: '(vc)consumable_products',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 13,
+      image: VCProduct4,
+      mainCategory: 'vc',
+      subCategory: 'consumable_products',
+      title: '(vc)consumable_products2',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 14,
+      image: VCProduct1,
+      mainCategory: 'vc',
+      subCategory: 'doors_and_window',
+      title: '(vc)doors_and_window3',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 15,
+      image: VCProduct2,
+      mainCategory: 'vc',
+      subCategory: 'doors_and_window',
+      title: '(vc)doors_and_window4',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 16,
+      image: VCProduct3,
+      mainCategory: 'vc',
+      subCategory: 'consumable_products',
+      title: '(vc)consumable_products3',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+    {
+      id: 17,
+      image: VCProduct4,
+      mainCategory: 'vc',
+      subCategory: 'consumable_products',
+      title: '(vc)consumable_products4',
+      description: '在全自動模式下，只需輕輕按下“一鍵取片”按鍵，聯動整條切割線。',
+      imageList: [
+        TTLProduct1,
+        TTLProduct2,
+        TTLProduct3,
+        TTLProduct4,
+        VCProduct1,
+      ],
+    },
+  ],
 };
 
 export default data;

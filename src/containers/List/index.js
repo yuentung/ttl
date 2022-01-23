@@ -176,44 +176,13 @@ const Page = styled.div`
   }
 `;
 
-const categoryList = {
-  all: {
-    text: '全部產品',
-  },
-  equipment: {
-    text: '機器設備銷售',
-    subCategoryList: {
-      laminated_glass_production_line: {
-        text: '複層玻璃生產線',
-      },
-      window_cutting_machine: {
-        text: '玻璃切割機',
-      },
-      hot_glue_machine: {
-        text: '熱熔膠機',
-      },
-    },
-  },
-  vc: {
-    text: 'VC 威斯卡門窗',
-    subCategoryList: {
-      doors_and_window: {
-        text: '門窗產品',
-      },
-      consumable_products: {
-        text: '消耗性產品',
-      },
-    },
-  },
-};
-
 const List = () => {
   const { width } = useWindowDimensions();
   const isMobile = width <= 768;
   const [page, setPage] = useState(1);
   const [products, setProducts] = useState([]);
   const { category } = useParams();
-  const { productList } = data.home.products;
+  const { categoryList, productList } = data;
   const totalPage = products.length % 9 === 0
     ? parseInt(products.length / 9)
     : parseInt(products.length / 9) + 1;

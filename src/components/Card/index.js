@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { greaterThanMobile } from '../../theme/breakpoints';
 
@@ -7,6 +8,7 @@ const Wrapper = styled.li`
   flex-direction: column;
   filter: drop-shadow(16px 16px 24px rgba(203, 201, 201, 0.25));
   overflow: hidden;
+  cursor: pointer;
 
   &:hover > img {
     transform: scale(1.1);
@@ -39,14 +41,19 @@ const Title = styled.h3`
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Description = styled.p`
+  height: 48px;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 1.2px;
   font-weight: 400;
   color: #525252;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   ${greaterThanMobile} {
     margin-bottom: 20px;
@@ -62,14 +69,15 @@ const Icon = styled.i`
   cursor: pointer;
 `;
 
-const Card = ({ image, title, description }) => {
+const Card = ({ image, title, description, id }) => {
+  const history = useHistory();
 
   return (
-    <Wrapper>
+    <Wrapper onClick={() => history.push(`/view/${id}`)}>
       <Image src={image} alt={title} />
       <Content>
         <Title>{title}</Title>
-        <Description>{description}</Description>
+        <Description dangerouslySetInnerHTML={{ __html: description }} />
         <Icon className="far fa-arrow-right"></Icon>
       </Content>
     </Wrapper>

@@ -8,6 +8,7 @@ import Home from '../Home';
 import About from '../About';
 import Contact from '../Contact';
 import List from '../List';
+import View from '../View';
 
 const App = () => (
   <>
@@ -25,6 +26,9 @@ const App = () => (
         </Route>
         <Route path="/list/:category/">
           <List />
+        </Route>
+        <Route path="/view/:id/">
+          <View />
         </Route>
         <Route path="/">
           <Home />
