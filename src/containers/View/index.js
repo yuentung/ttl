@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   }
 
   ${forMobile} {
-    padding: 120px 32px 100px;
+    padding: 120px 32px 0;
   }
 `;
 
@@ -272,6 +272,7 @@ const ProductTitle = styled.div`
 const ProductWrapper = styled.div`
   ${forMobile} {
     display: flex;
+    padding-bottom: 100px;
     margin: 0 -32px;
     overflow: auto;
 
@@ -403,7 +404,7 @@ const View = () => {
               return <Card key={productItem.title} {...productItem} />
             }
 
-            if (width <= 820) {
+            if (width <= 820 && index < 4) {
               return <Card key={productItem.title} {...productItem} />
             }
             return null;

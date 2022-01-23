@@ -113,7 +113,8 @@ const ProductWrapper = styled.div`
 
   ${forMobile} {
     display: flex;
-    margin: 0 -32px 80px;
+    padding-bottom: 80px;
+    margin: 0 -32px;
     overflow: auto;
 
     &::-webkit-scrollbar {
@@ -200,7 +201,7 @@ const Products = () => {
               return <Card key={productItem.title} {...productItem} />
             }
 
-            if (width <= 820) {
+            if (width <= 820 && index < 4) {
               return <Card key={productItem.title} {...productItem} />
             }
             return null;
