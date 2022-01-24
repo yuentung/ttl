@@ -21,6 +21,8 @@ import Feature3 from './images/feature3.png';
 import AboutIntro1 from './images/about_intro1.png';
 import AboutIntro2 from './images/about_intro2.png';
 import ContactBanner from './images/banner_contact.png';
+import CasesBanner from './images/banner_cases.png';
+import Case1 from './images/case1.png';
 import Agent from './images/agent.png';
 
 const data = {
@@ -456,7 +458,7 @@ const data = {
         },
         {
           text: '工程案例',
-          link: '',
+          link: '/case',
         },
         {
           text: '機械設備銷售',
@@ -542,6 +544,13 @@ const data = {
       description: '我們會在一週內由專人提供您專業的回覆，或是您可以從下方的管道聯繫我們。',
     },
     description: '我們會在一週內由專人提供您專業的回覆，或是您可以從下方的管道聯繫我們。',
+  },
+  case: {
+    banner: {
+      image: CasesBanner,
+      title: 'CASES',
+      subTitle: '工程案例',
+    },
   },
   categoryList: {
     all: {
@@ -830,6 +839,64 @@ const data = {
         TTLProduct4,
         VCProduct1,
       ],
+    },
+  ],
+  caseList: [
+    {
+      id: 1,
+      mainCategory: 'equipment',
+      image: Case1,
+      title: '台南清水漾',
+      description: '位於台南市區的台南清水漾 Villa 旅館，在當地擁有極高的知名度，本次清水漾Villa特別採用了古銅艷消色正新完美氣密門產品，不但是從室內看出去搭配衛浴或客廳都能呈現出超高的質感，從戶外泳池看進室內，更是美感爆表',
+    },
+    {
+      id: 2,
+      mainCategory: 'equipment',
+      image: Case1,
+      title: '桃園紅點設計宅',
+      description: '由於屋主喜歡大量的採光，所以將在一般人家中本來為牆面之處設計了大量的固定窗。但由於這些牆面並沒有進出的需求，因此透過大面積的固定窗，以及推開窗不對稱的搭配方式，去營造出不同的線條感，同時也可以兼具日常通風的需求。',
+    },
+    {
+      id: 3,
+      mainCategory: 'equipment',
+      image: Case1,
+      title: '宜蘭古典安農莊園民宿',
+      description: '位於台南市區的台南清水漾 Villa 旅館，在當地擁有極高的知名度，本次清水漾Villa特別採用了古銅艷消色正新完美氣密門產品，不但是從室內看出去搭配衛浴或客廳都能呈現出超高的質感，從戶外泳池看進室內，更是美感爆表',
+    },
+    {
+      id: 4,
+      mainCategory: 'equipment',
+      image: Case1,
+      title: '竹山精品宅',
+      description: '由於屋主喜歡大量的採光，所以將在一般人家中本來為牆面之處設計了大量的固定窗。但由於這些牆面並沒有進出的需求，因此透過大面積的固定窗，以及推開窗不對稱的搭配方式，去營造出不同的線條感，同時也可以兼具日常通風的需求。',
+    },
+    {
+      id: 5,
+      mainCategory: 'equipment',
+      image: Case1,
+      title: '苑裡南窩綠丘',
+      description: '位於台南市區的台南清水漾 Villa 旅館，在當地擁有極高的知名度，本次清水漾Villa特別採用了古銅艷消色正新完美氣密門產品，不但是從室內看出去搭配衛浴或客廳都能呈現出超高的質感，從戶外泳池看進室內，更是美感爆表',
+    },
+    {
+      id: 6,
+      mainCategory: 'equipment',
+      image: Case1,
+      title: '苗栗水樣西湖民宿',
+      description: '由於屋主喜歡大量的採光，所以將在一般人家中本來為牆面之處設計了大量的固定窗。但由於這些牆面並沒有進出的需求，因此透過大面積的固定窗，以及推開窗不對稱的搭配方式，去營造出不同的線條感，同時也可以兼具日常通風的需求。',
+    },
+    {
+      id: 7,
+      mainCategory: 'equipment',
+      image: Case1,
+      title: '台南清水漾',
+      description: '位於台南市區的台南清水漾 Villa 旅館，在當地擁有極高的知名度，本次清水漾Villa特別採用了古銅艷消色正新完美氣密門產品，不但是從室內看出去搭配衛浴或客廳都能呈現出超高的質感，從戶外泳池看進室內，更是美感爆表',
+    },
+    {
+      id: 8,
+      mainCategory: 'vc',
+      image: Case1,
+      title: '桃園紅點設計宅',
+      description: '由於屋主喜歡大量的採光，所以將在一般人家中本來為牆面之處設計了大量的固定窗。但由於這些牆面並沒有進出的需求，因此透過大面積的固定窗，以及推開窗不對稱的搭配方式，去營造出不同的線條感，同時也可以兼具日常通風的需求。',
     },
   ],
 };

@@ -9,6 +9,7 @@ import About from '../About';
 import Contact from '../Contact';
 import List from '../List';
 import View from '../View';
+import Case from '../Case';
 
 const App = () => (
   <>
@@ -29,6 +30,9 @@ const App = () => (
         </Route>
         <Route path="/view/:id/">
           <View />
+        </Route>
+        <Route path="/case">
+          <Case />
         </Route>
         <Route path="/">
           <Home />
