@@ -10,6 +10,7 @@ import Contact from '../Contact';
 import List from '../List';
 import View from '../View';
 import Case from '../Case';
+import CaseView from '../CaseView';
 
 const App = () => (
   <>
@@ -31,8 +32,11 @@ const App = () => (
         <Route path="/view/:id/">
           <View />
         </Route>
-        <Route path="/case">
+        <Route path="/case" exact>
           <Case />
+        </Route>
+        <Route path="/case/:id/">
+          <CaseView />
         </Route>
         <Route path="/">
           <Home />

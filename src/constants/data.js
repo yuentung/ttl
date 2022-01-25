@@ -22,6 +22,7 @@ import AboutIntro1 from './images/about_intro1.png';
 import AboutIntro2 from './images/about_intro2.png';
 import ContactBanner from './images/banner_contact.png';
 import CasesBanner from './images/banner_cases.png';
+import CaseBanner from './images/banner_case.png';
 import Case1 from './images/case1.png';
 import Agent from './images/agent.png';
 
@@ -165,7 +166,7 @@ const data = {
         },
         {
           text: '工程案例',
-          link: '',
+          link: '/case',
           subNavList: [
             {
               text: '',
@@ -173,59 +174,59 @@ const data = {
               lastNavList: [
                 {
                   text: '電梯大樓陽台窗',
-                  link: '',
+                  link: '/case/1',
                 },
                 {
                   text: '別墅採光罩及玻璃安裝',
-                  link: '',
+                  link: '/case/2',
                 },
                 {
                   text: '住宅推開窗及折疊紗窗',
-                  link: '',
+                  link: '/case/3',
                 },
                 {
                   text: '住宅氣密門',
-                  link: '',
+                  link: '/case/4',
                 },
                 {
                   text: '招待所平行回縮推拉門',
-                  link: '',
+                  link: '/case/5',
                 },
                 {
                   text: '住宅格子窗',
-                  link: '',
+                  link: '/case/6',
                 },
                 {
                   text: '住宅內導內開窗',
-                  link: '',
+                  link: '/case/7',
                 },
                 {
                   text: '住宅外開上懸窗',
-                  link: '',
+                  link: '/case/8',
                 },
                 {
                   text: '住宅三合一通風門',
-                  link: '',
+                  link: '/case/1',
                 },
                 {
                   text: '機架料組合架及工作桌',
-                  link: '',
+                  link: '/case/2',
                 },
                 {
                   text: '住宅樓梯扶手',
-                  link: '',
+                  link: '/case/3',
                 },
                 {
                   text: '自動門',
-                  link: '',
+                  link: '/case/4',
                 },
                 {
                   text: '淋浴拉門',
-                  link: '',
+                  link: '/case/5',
                 },
                 {
                   text: '摺疊門',
-                  link: '',
+                  link: '/case/6',
                 },
               ],
             },
@@ -845,56 +846,128 @@ const data = {
     {
       id: 1,
       mainCategory: 'equipment',
+      banner: CaseBanner,
       image: Case1,
+      imageList: [
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+      ],
       title: '台南清水漾',
-      description: '位於台南市區的台南清水漾 Villa 旅館，在當地擁有極高的知名度，本次清水漾Villa特別採用了古銅艷消色正新完美氣密門產品，不但是從室內看出去搭配衛浴或客廳都能呈現出超高的質感，從戶外泳池看進室內，更是美感爆表',
+      description: '位於台南市區的台南清水漾 Villa 旅館，在當地擁有極高的知名度，本次清水漾Villa特別採用了古銅艷消色正新完美氣密門產品，不但是從室內看出去搭配衛浴或客廳都能呈現出超高的質感，從戶外泳池看進室內，更是美感爆表帕洛克摺疊門可提供多種折疊開啟的方式，除了一般常見的統一收納摺疊於一側之外，還可以利用左右摺扇配置不同的方式達到更多樣的變化，甚至也可以設計出當作單一門扇進出的功能。',
     },
     {
       id: 2,
       mainCategory: 'equipment',
+      banner: CaseBanner,
       image: Case1,
+      imageList: [
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+      ],
       title: '桃園紅點設計宅',
       description: '由於屋主喜歡大量的採光，所以將在一般人家中本來為牆面之處設計了大量的固定窗。但由於這些牆面並沒有進出的需求，因此透過大面積的固定窗，以及推開窗不對稱的搭配方式，去營造出不同的線條感，同時也可以兼具日常通風的需求。',
     },
     {
       id: 3,
       mainCategory: 'equipment',
+      banner: CaseBanner,
       image: Case1,
+      imageList: [
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+      ],
       title: '宜蘭古典安農莊園民宿',
       description: '位於台南市區的台南清水漾 Villa 旅館，在當地擁有極高的知名度，本次清水漾Villa特別採用了古銅艷消色正新完美氣密門產品，不但是從室內看出去搭配衛浴或客廳都能呈現出超高的質感，從戶外泳池看進室內，更是美感爆表',
     },
     {
       id: 4,
       mainCategory: 'equipment',
+      banner: CaseBanner,
       image: Case1,
+      imageList: [
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+      ],
       title: '竹山精品宅',
       description: '由於屋主喜歡大量的採光，所以將在一般人家中本來為牆面之處設計了大量的固定窗。但由於這些牆面並沒有進出的需求，因此透過大面積的固定窗，以及推開窗不對稱的搭配方式，去營造出不同的線條感，同時也可以兼具日常通風的需求。',
     },
     {
       id: 5,
       mainCategory: 'equipment',
+      banner: CaseBanner,
       image: Case1,
+      imageList: [
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+      ],
       title: '苑裡南窩綠丘',
       description: '位於台南市區的台南清水漾 Villa 旅館，在當地擁有極高的知名度，本次清水漾Villa特別採用了古銅艷消色正新完美氣密門產品，不但是從室內看出去搭配衛浴或客廳都能呈現出超高的質感，從戶外泳池看進室內，更是美感爆表',
     },
     {
       id: 6,
       mainCategory: 'equipment',
+      banner: CaseBanner,
       image: Case1,
+      imageList: [
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+      ],
       title: '苗栗水樣西湖民宿',
       description: '由於屋主喜歡大量的採光，所以將在一般人家中本來為牆面之處設計了大量的固定窗。但由於這些牆面並沒有進出的需求，因此透過大面積的固定窗，以及推開窗不對稱的搭配方式，去營造出不同的線條感，同時也可以兼具日常通風的需求。',
     },
     {
       id: 7,
       mainCategory: 'equipment',
+      banner: CaseBanner,
       image: Case1,
+      imageList: [
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+      ],
       title: '台南清水漾',
       description: '位於台南市區的台南清水漾 Villa 旅館，在當地擁有極高的知名度，本次清水漾Villa特別採用了古銅艷消色正新完美氣密門產品，不但是從室內看出去搭配衛浴或客廳都能呈現出超高的質感，從戶外泳池看進室內，更是美感爆表',
     },
     {
       id: 8,
       mainCategory: 'vc',
+      banner: CaseBanner,
       image: Case1,
+      imageList: [
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+        Case1,
+      ],
       title: '桃園紅點設計宅',
       description: '由於屋主喜歡大量的採光，所以將在一般人家中本來為牆面之處設計了大量的固定窗。但由於這些牆面並沒有進出的需求，因此透過大面積的固定窗，以及推開窗不對稱的搭配方式，去營造出不同的線條感，同時也可以兼具日常通風的需求。',
     },

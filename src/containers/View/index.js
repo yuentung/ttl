@@ -327,7 +327,6 @@ const View = () => {
   const { id: selectedId } = useParams();
   const { width } = useWindowDimensions();
   const { categoryList, productList } = data;
-  console.log(productList)
   const {
     title,
     description,
